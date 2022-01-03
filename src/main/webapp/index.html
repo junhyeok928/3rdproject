@@ -1,17 +1,197 @@
 <!DOCTYPE html>
-<html>
+<html lang="kr">
     <head>
         <meta charset="UTF-8" />
-        <title>[]오늘도 화이팅</title>
-        <style></style>
-        <script src="../a00_com/jquery-3.6.0.js"></script>
-        <script>
-            $("document").ready(function () {
-                $("test").text("jquery 시작!!");
-            });
-        </script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>IF</title>
+        <link rel="shortcut icon" href="./img/favicon.ico" />
+        <style>
+            html,
+            body {
+                height: -webkit-fill-available;
+                font-family: Heebo;
+                color: #353535;
+            }
+            header {
+                height: 40px;
+                background-color: white;
+                position: fixed;
+                width: 100%;
+                z-index: 9999;
+                top: 0;
+                left: 0;
+                border-bottom: solid 1.5px;
+            }
+            ul {
+                list-style: none;
+                text-align: right;
+                margin: 0px;
+                padding: 0px;
+            }
+            .logo {
+                float: left;
+                width: 10%;
+            }
+            .menubox {
+                float: left;
+            }
+            .headerbox{
+                float: right;
+            }
+            .menu {
+                width: 100%;
+            }
+            .menu > li {
+                float: left;
+                font-size: 14px;
+                /* font-weight: bold; */
+                /* font-family: Heebo; */
+                padding: 7px;
+            }
+            .menu > li > a {
+                text-align: left;
+                text-decoration: none;
+                line-height: 30px;
+                display: block;
+                white-space: nowrap;
+                color: black;
+            }
+            .menu li:hover > ul {
+                display: block;
+                position: relative;
+                top: 10px;
+            }
+            .menu li:hover > a {
+                text-decoration: underline;
+                text-underline-position: under;
+            }
+            .menu ul {
+                display: none;
+                text-align: left;
+            }
+            .submenu {
+                width: 1px;
+            }
+            .submenu a {
+                text-decoration: none;
+                white-space: nowrap;
+                color: black;
+            }
+            .submenu a:visited {
+                color: black;
+            }
+        </style>
     </head>
+
     <body>
-        <h2></h2>
+        <nav>
+            <div class="logo">
+                <img src="./img/logo.png" alt=""/>
+            </div>
+            
+            <div class="menubox">
+                <ul class="menu">
+                    <li class="parent">
+                        <a href="#">수강신청</a>
+                        <ul class="submenu">
+                            <li class="parent">
+                                <a href="#">정보처리산업기사</a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">필기</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">실기</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">한달특강</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="parent">
+                                <a href="#">정보처리기사</a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">필기</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">실기</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">한달특강</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class>
+                        <a href="#">강사소개</a>
+                    </li>
+                    <li class="parent">
+                        <a href="#">코딩연습</a>
+
+                        <ul class="submenu">
+                            <li class>
+                                <a href="#">초급</a>
+                            </li>
+                            <li class>
+                                <a href="#">중급</a>
+                            </li>
+                            <li class>
+                                <a href="#">고급</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="parent">
+                        <a href="#">커뮤니티</a>
+
+                        <ul class="submenu">
+                            <li class>
+                                <a href="#">후기</a>
+                            </li>
+                            <li class>
+                                <a href="#">자유게시판</a>
+                            </li>
+                            <li class>
+                                <a href="#">질문게시판</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navparent">
+                        <a href="#">공지사항</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#"><span>공지사항</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>Q/A</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>시험일정</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><span>이벤트</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#">나의강의실</a>
+                    </li>
+                </ul>
+
+                
+            </div>
+            <div class="headerbox">
+                <ul class="menu">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Join Us</a></li>
+                    <li><a href="#">My Page</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+            </div>
+        </nav>
     </body>
 </html>

@@ -6,90 +6,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>IF</title>
         <link rel="shortcut icon" href="./img/favicon.ico" />
-        <style>
-            html,
-            body {
-                height: -webkit-fill-available;
-                font-family: Heebo;
-                color: #353535;
-            }
-            header {
-                height: 40px;
-                background-color: white;
-                position: fixed;
-                width: 100%;
-                z-index: 9999;
-                top: 0;
-                left: 0;
-                border-bottom: solid 1.5px;
-            }
-            ul {
-                list-style: none;
-                text-align: right;
-                margin: 0px;
-                padding: 0px;
-            }
-            .logo {
-                float: left;
-                width: 10%;
-            }
-            .menubox {
-                float: left;
-            }
-            .headerbox{
-                float: right;
-            }
-            .menu {
-                width: 100%;
-            }
-            .menu > li {
-                float: left;
-                font-size: 14px;
-                /* font-weight: bold; */
-                /* font-family: Heebo; */
-                padding: 7px;
-            }
-            .menu > li > a {
-                text-align: left;
-                text-decoration: none;
-                line-height: 30px;
-                display: block;
-                white-space: nowrap;
-                color: black;
-            }
-            .menu li:hover > ul {
-                display: block;
-                position: relative;
-                top: 10px;
-            }
-            .menu li:hover > a {
-                text-decoration: underline;
-                text-underline-position: under;
-            }
-            .menu ul {
-                display: none;
-                text-align: left;
-            }
-            .submenu {
-                width: 1px;
-            }
-            .submenu a {
-                text-decoration: none;
-                white-space: nowrap;
-                color: black;
-            }
-            .submenu a:visited {
-                color: black;
-            }
-        </style>
+        <link rel="stylesheet" href="./css/font.css" />
+        <link rel="stylesheet" href="./css/header_footer.css">
     </head>
 
     <body>
-        <nav>
+        <header>
             <div class="logo">
-                <img src="./img/logo.png" alt=""/>
+                <img class="logoimg" src="./img/logo_ver2.png" alt="" height="100px" />
             </div>
-            
+            <div class="headerbox">
+                <ul class="menu">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#">장바구니</a></li>
+                    <li><a href="#">마이페이지</a></li>
+                </ul>
+            </div>
+        </header>
+        <nav>
             <div class="menubox">
                 <ul class="menu">
                     <li class="parent">
@@ -97,7 +32,7 @@
                         <ul class="submenu">
                             <li class="parent">
                                 <a href="#">정보처리산업기사</a>
-                                <ul class="submenu">
+                                <ul class="submenu2">
                                     <li>
                                         <a href="#">필기</a>
                                     </li>
@@ -111,7 +46,7 @@
                             </li>
                             <li class="parent">
                                 <a href="#">정보처리기사</a>
-                                <ul class="submenu">
+                                <ul class="submenu2">
                                     <li>
                                         <a href="#">필기</a>
                                     </li>
@@ -129,9 +64,11 @@
                     <li class>
                         <a href="#">강사소개</a>
                     </li>
+                    <li class>
+                        <a href="#">교재신청</a>
+                    </li>
                     <li class="parent">
                         <a href="#">코딩연습</a>
-
                         <ul class="submenu">
                             <li class>
                                 <a href="#">초급</a>
@@ -181,17 +118,18 @@
                         <a href="#">나의강의실</a>
                     </li>
                 </ul>
-
-                
-            </div>
-            <div class="headerbox">
-                <ul class="menu">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Join Us</a></li>
-                    <li><a href="#">My Page</a></li>
-                    <li><a href="#">Cart</a></li>
-                </ul>
             </div>
         </nav>
+
+
+        <footer>
+            <div class="footli">
+                <ul>
+                    <li><a href="">고객센터</a></li>
+                    <li><a href="">이용약관</a></li>
+                    <li><a href="">개인정보취급방침</a></li>
+                </ul>
+            </div>
+        </footer>
     </body>
 </html>

@@ -85,10 +85,33 @@ footer {
     position: fixed;
     width: 100%;
     height: 100%;
-    top: 85%;
+    top: 90%;
     right: 0px;
     background-color: #eceff1;
-}
-footer > ul {
     display: flex;
+    justify-content: center;
+}
+footer ul {
+    display: block;
+    list-style: none;
+    text-align: left;
+    margin: 30px;
+}
+footer li{
+    padding: 2px;
+}
+footer a {
+    text-decoration: none;
+    white-space: nowrap;
+    color: black;
+    font-weight: bold;
+}
+.foot1, .foot2{
+    display: flex;
+    flex-direction: column;
+    margin: 31px;
+}
+span {
+    display: flex;
+    padding: 2px;
 }

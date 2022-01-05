@@ -71,6 +71,9 @@ ul {
     display: none;
     text-align: left;
 }
+.submenu li{
+    padding: 5px 0px 0px 0px;
+}
 .submenu a {
     text-decoration: none;
     white-space: nowrap;
@@ -85,7 +88,7 @@ footer {
     position: fixed;
     width: 100%;
     height: 100%;
-    top: 90%;
+    top:  88%;
     right: 0px;
     background-color: #eceff1;
     display: flex;

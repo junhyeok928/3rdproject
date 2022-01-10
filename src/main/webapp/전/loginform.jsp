@@ -12,6 +12,7 @@ request.setCharacterEncoding("utf-8");
 <link rel="shortcut icon" href="./img/favicon.ico" />
 <link rel="stylesheet" href="./css/font.css" />
 <link rel="stylesheet" href="./css/template.css" />
+<link rel="stylesheet" href="./css/login.css" />
 </head>
 <body>
 	<header>
@@ -59,10 +60,28 @@ request.setCharacterEncoding("utf-8");
 			</ul>
 		</div>
 	</nav>
-	<div class="test"></div>
 	<div class="float1">베너</div>
 	<div class="float2">베너</div>
-	<section></section>
+	<section>
+		<form action="" method="post" class="logform">
+			<fieldset class="login">
+				<div>
+					<span class="text">ID</span>
+					<input type="text" id="id" name="userId" />
+				</div>
+				<div>
+					<span class="text">PASSWORD</span>
+					<input type="password" id="password" name="userPw" />
+				</div>
+				<div>
+					<input type="submit" value="로그인" id="btn_login" />
+				</div>
+				<div>
+					<a href="#">계정찾기</a>/<a href="#">회원가입</a>
+				</div>
+			</fieldset>
+		</form>
+	</section>
 	<footer>
 		<div class="foot1" style="display: flex">
 			<span> 대표 : 전준혁 </span> <span> 주소 : 충청남도 천안시 불당 26로 99 </span> <span> 연락처 : 010-2200-9365 </span>

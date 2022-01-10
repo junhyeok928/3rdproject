@@ -13,11 +13,29 @@ request.setCharacterEncoding("utf-8");
 <link rel="stylesheet" href="./css/font.css" />
 <link rel="stylesheet" href="./css/template.css" />
 <link rel="stylesheet" href="./css/login.css" />
+<script type="text/javascript">
+function checkValue()
+{
+    inputForm = eval("document.loginInfo");
+    if(!inputForm.userId.value)
+    {
+        alert("아이디를 입력하세요");    
+        inputForm.userId.focus();
+        return false;
+    }
+    if(!inputForm.userPw.value)
+    {
+        alert("비밀번호를 입력하세요");    
+        inputForm.userPw.focus();
+        return false;
+    }
+}
+</script>
 </head>
 <body>
 	<header>
 		<div class="logo">
-			<a href="#" style="text-decoration: none"><img class="logoimg" src="./img/logo.png" alt="" height="100px" /> </a>
+			<a href="./main.jsp" style="text-decoration: none"><img class="logoimg" src="./img/logo.png" alt="" height="100px" /> </a>
 		</div>
 		<div class="headerbox">
 			<ul class="menu">
@@ -74,7 +92,7 @@ request.setCharacterEncoding("utf-8");
 	<div class="float1">베너</div>
 	<div class="float2">베너</div>
 	<section>
-		<form action="./login_ok.jsp" method="post" class="logform">
+		<form action="./loginpro.jsp" method="post" class="logform" name="loginInfo" onsubmit="return checkValue()">
 			<fieldset class="login">
 				<div>
 					<span class="text">ID</span>

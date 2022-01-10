@@ -1,19 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-request.setCharacterEncoding("utf-8");
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.util.*" import="jspexp.z01_vo.*" import="jspexp.a03_database.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="path" value="${pageContext.request.contextPath}" />
+<fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<style>
-</style>
-<title>로그인</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IF</title>
 <link rel="shortcut icon" href="./img/favicon.ico" />
 <link rel="stylesheet" href="./css/font.css" />
 <link rel="stylesheet" href="./css/template.css" />
-<link rel="stylesheet" href="./css/login.css" />
 </head>
+
 <body>
 	<header>
 		<div class="logo">
@@ -73,26 +74,7 @@ request.setCharacterEncoding("utf-8");
 	</nav>
 	<div class="float1">베너</div>
 	<div class="float2">베너</div>
-	<section>
-		<form action="./login_ok.jsp" method="post" class="logform">
-			<fieldset class="login">
-				<div>
-					<span class="text">ID</span>
-					<input type="text" id="id" name="userId" />
-				</div>
-				<div>
-					<span class="text">PASSWORD</span>
-					<input type="password" id="password" name="userPw" />
-				</div>
-				<div>
-					<input type="submit" value="로그인" id="btn_login" />
-				</div>
-				<div>
-					<a href="#">계정찾기</a>/<a href="#">회원가입</a>
-				</div>
-			</fieldset>
-		</form>
-	</section>
+	<section></section>
 	<footer>
 		<div class="foot1" style="display: flex">
 			<span> 대표 : 전준혁 </span> <span> 주소 : 충청남도 천안시 불당 26로 99 </span> <span> 연락처 : 010-2200-9365 </span>

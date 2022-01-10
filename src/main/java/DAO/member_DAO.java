@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import VO.member_VO;
-
 public class member_DAO {
 		private Connection con;
 		private PreparedStatement pstmt;
@@ -53,7 +51,6 @@ public class member_DAO {
 
 		}
 		public int loginCheck(String id, String pw) {
-			String name = null;
 			int x = -1;
 			try {
 				setConn();

@@ -8,6 +8,49 @@
         <link rel="shortcut icon" href="./img/favicon.ico" />
         <link rel="stylesheet" href="./css/font.css" />
         <link rel="stylesheet" href="./css/template.css" />
+        <style>
+            section {
+                height: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .logform {
+                height: 65%;
+                display: flex;
+            }
+            .login {
+                border: hidden;
+                display: flex;
+                align-items: center;
+                width: 300px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .text {
+                font-size: 20px;
+                font-weight: bold;
+            }
+            #id,
+            #password {
+                border: 1px solid;
+                border-radius: 6px;
+                height: 25px;
+                width: 280px;
+                font-size: 20px;
+                padding: 5px;
+            }
+            #btn_login {
+                width: 292px;
+                height: 40px;
+                border-radius: 7px;
+                border-width: inherit;
+                font-size: 16px;
+                color: white;
+                background: darkgray;
+                font-family: "NEXON Lv1 Gothic OTF";
+            }
+        </style>
     </head>
 
     <body>
@@ -94,11 +137,25 @@
                 </ul>
             </div>
         </nav>
-        <div class="test"></div>
         <div class="float1">베너</div>
         <div class="float2">베너</div>
         <section>
-            
+            <form action="" class="logform">
+                <fieldset class="login">
+                    <div>
+                        <span class="text">ID</span>
+                        <input type="text" id="id" />
+                    </div>
+                    <div>
+                        <span class="text">PASSWORD</span>
+                        <input type="password" id="password" />
+                    </div>
+                    <div>
+                        <input type="button" value="로그인" id="btn_login" />
+                    </div>
+                    <div><a href="#">계정찾기</a>/<a href="#">회원가입</a></div>
+                </fieldset>
+            </form>
         </section>
         <footer>
             <div class="foot1" style="display: flex">

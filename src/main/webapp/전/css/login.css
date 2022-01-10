@@ -1,0 +1,41 @@
+section {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logform {
+    height: 65%;
+    display: flex;
+}
+.login {
+    border: hidden;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.text {
+    font-size: 20px;
+    font-weight: bold;
+}
+#id,
+#password {
+    border: 1px solid;
+    border-radius: 6px;
+    height: 25px;
+    width: 280px;
+    font-size: 20px;
+    padding: 5px;
+}
+#btn_login {
+    width: 292px;
+    height: 40px;
+    border-radius: 7px;
+    border-width: inherit;
+    font-size: 16px;
+    color: white;
+    background: darkgray;
+    font-family: "NEXON Lv1 Gothic OTF";
+}

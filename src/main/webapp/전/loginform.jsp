@@ -54,7 +54,12 @@ request.setCharacterEncoding("utf-8");
 				}
 				%>
 				<li><a href="#">회원가입</a></li>
+				<% 
+				if(session.getAttribute("sessionID") != null){
+
+				%>
 				<li><a href="#">마이페이지</a></li>
+				<%} %>			
 			</ul>
 		</div>
 	</header>

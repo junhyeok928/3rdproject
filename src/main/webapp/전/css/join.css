@@ -1,0 +1,34 @@
+.block {
+    height:50px;
+}
+.fullConsent{
+    border: 1px solid #d5d5d5;
+}
+.fullConsent p {
+    padding: 10px;
+}
+.fullConsent .checkBox{
+    margin:0 5px;
+    /* 체크박스 꾸미기 찾아보기 */
+}
+.fullConsent p label{
+    font-size: 11px;
+}
+.agreeArea {
+    border: 1px solid #d5d5d5;
+    padding: 10px;
+}
+.agreeArea .content {
+    height: 110px;
+    padding: 20px;
+    border: 1px solid #d5d5d5;
+    overflow: scroll;
+    /* 스크롤 꾸미기 찾아보기 */
+}
+.agreeArea .check{
+    font-weight:400;
+}
+input[type=checkBox] {
+    position: relative;
+    top: 3px;
+}

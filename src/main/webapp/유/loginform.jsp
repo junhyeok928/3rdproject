@@ -14,23 +14,22 @@ request.setCharacterEncoding("utf-8");
 <link rel="stylesheet" href="./css/template.css" />
 <link rel="stylesheet" href="./css/login.css" />
 <script type="text/javascript">
-	function logout() {
-		alert("로그아웃 되었습니다.");
-	}
-
-	function checkValue() {
-		inputForm = eval("document.loginInfo");
-		if (!inputForm.userId.value) {
-			alert("아이디를 입력하세요");
-			inputForm.userId.focus();
-			return false;
-		}
-		if (!inputForm.userPw.value) {
-			alert("비밀번호를 입력하세요");
-			inputForm.userPw.focus();
-			return false;
-		}
-	}
+function checkValue()
+{
+    inputForm = eval("document.loginInfo");
+    if(!inputForm.userId.value)
+    {
+        alert("아이디를 입력하세요");    
+        inputForm.userId.focus();
+        return false;
+    }
+    if(!inputForm.userPw.value)
+    {
+        alert("비밀번호를 입력하세요");    
+        inputForm.userPw.focus();
+        return false;
+    }
+}
 </script>
 </head>
 <body>
@@ -42,24 +41,18 @@ request.setCharacterEncoding("utf-8");
 			<ul class="menu">
 				<%
 				String msg = request.getParameter("msg");
-
-				if (session.getAttribute("sessionID") != null) {
-				%><li><a href="#"><%=session.getAttribute("sessionID")%>님</a></li>
-				<li><a href="./logoutpro.jsp" onclick="logout()">로그아웃</a></li>
+				System.out.println(session.getAttribute("sessionID"));
+				if (session.getAttribute("sessionID")!=null) {
+				%><li><a href="#">로그아웃</a></li>
 				<%
 				} else {
 				%>
-				<li><a href="./loginform.jsp">로그인</a></li>
+				<li><a href="#">로그인</a></li>
 				<%
 				}
 				%>
 				<li><a href="#">회원가입</a></li>
-				<% 
-				if(session.getAttribute("sessionID") != null){
-
-				%>
 				<li><a href="#">마이페이지</a></li>
-				<%} %>			
 			</ul>
 		</div>
 	</header>
@@ -96,8 +89,12 @@ request.setCharacterEncoding("utf-8");
 			</ul>
 		</div>
 	</nav>
-	<div class="float1">베너</div>
-	<div class="float2">베너</div>
+	 <div>
+     <img class="float1" src="./img/banner1.png" alt="오류" >
+     </div>
+     <div>
+     <img class="float2" src="./img/banner2.png" alt="오류" >
+     </div>
 	<section>
 		<form action="./loginpro.jsp" method="post" class="logform" name="loginInfo" onsubmit="return checkValue()">
 			<fieldset class="login">

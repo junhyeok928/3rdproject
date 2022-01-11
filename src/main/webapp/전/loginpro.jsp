@@ -30,13 +30,7 @@
 	{
 		session.setAttribute("sessionID", id);
 		msg = "./main.jsp";
-	} else {%>
-	<script>
-	 alert("아이디를 입력하세요");
-	 document.location.href='./login.jsp'
-	 </script>
-	<%
-
+	} else {
 		msg = "./loginform.jsp?msg=0";
 	}
 	response.sendRedirect(msg);

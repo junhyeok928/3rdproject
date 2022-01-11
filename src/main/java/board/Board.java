@@ -2,7 +2,7 @@ package board;
 
 public class Board {
 	private int boardID;
-	private int tNumber;
+	private String teacherInfo;
 	private String userID;
 	private String boardTitle;
 	private String boardDate;
@@ -14,11 +14,11 @@ public class Board {
 	public void setBoardID(int boardID) {
 		this.boardID = boardID;
 	}
-	public int gettNumber() {
-		return tNumber;
+	public String getTeacherInfo() {
+		return teacherInfo;
 	}
-	public void settNumber(int tNumber) {
-		this.tNumber = tNumber;
+	public void setTeacherInfo(String teacherInfo) {
+		this.teacherInfo = teacherInfo;
 	}
 	public String getUserID() {
 		return userID;

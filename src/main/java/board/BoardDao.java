@@ -53,14 +53,13 @@ public class BoardDao {
 	}
 	
 	
-	public int write(String boardTitle, String userID, String boardContent) {
+	public int write(String teacherInfo, String boardTitle, String userID, String boardContent) {
 		String sql = "INSERT INTO RVBOARD VALUES(?, ?, ?, ?, ?, ?)";
 		try {
 			setConn();
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			int tid = 1;	// 임시값
 			pstmt.setInt(1, getNext());
-			pstmt.setInt(2, tid);
+			pstmt.setString(2, teacherInfo);
 			pstmt.setString(3, userID);
 			pstmt.setString(4, boardTitle);
 			pstmt.setString(5, getDate());
@@ -74,7 +73,14 @@ public class BoardDao {
 	}
 	
 	public ArrayList<Board> getList(int pageNumber){
-		String sql = "SELECT * FROM RVBOARD WHERE boardID < ? ORDER BY boardID DESC LIMIT 10";
+		String sql = "SELECT * \r\n"
+				+ "FROM ( \r\n"
+				+ "		SELECT * \r\n"
+				+ "		FROM RVBOARD \r\n"
+				+ "		WHERE boardID < ?\r\n"
+				+ "		ORDER BY boardID DESC \r\n"
+				+ "		) \r\n"
+				+ "WHERE rownum <= 10";
 		ArrayList<Board> list = new ArrayList<Board>();
 		try {
 			setConn();
@@ -84,7 +90,7 @@ public class BoardDao {
 			while ( rs.next()) {
 				Board board = new Board();
 				board.setBoardID(rs.getInt(1));
-				board.settNumber(rs.getInt(2));
+				board.setTeacherInfo(rs.getString(2));
 				board.setUserID(rs.getString(3));
 				board.setBoardTitle(rs.getString(4));
 				board.setBoardDate(rs.getString(5));
@@ -93,13 +99,20 @@ public class BoardDao {
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("예외:"+e.getMessage());
 		}
 		return list;
 	}
 	
 	public boolean nextPage(int pageNumber) {
-		String sql = "SELECT * FROM RVBOARD WHERE boardID < ? ORDER BY boardID DESC LIMIT 10";
+		String sql = "SELECT * \r\n"
+				+ "FROM ( \r\n"
+				+ "		SELECT * \r\n"
+				+ "		FROM RVBOARD \r\n"
+				+ "		WHERE boardID < ?\r\n"
+				+ "		ORDER BY boardID DESC \r\n"
+				+ "		) \r\n"
+				+ "WHERE rownum <= 10";
 		try {
 			setConn();
 			PreparedStatement pstmt = con.prepareStatement(sql);
@@ -113,6 +126,11 @@ public class BoardDao {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	public static void main(String[] args) {
+		BoardDao bd = new BoardDao();
+		System.out.println(bd.nextPage(3)); 
+		
 	}
 	
 	

@@ -67,6 +67,10 @@
 	padding: 6px 0 6px 0;
 	border-bottom: 1px solid #dddddd;
 }
+.table_maintext tbody tr td a {
+	text-decoration: none;
+	color: black;
+}
 .writeBtn {
 	margin-top: 10px;
 	font-size: 12px;
@@ -79,7 +83,6 @@
 	left: 95%;
 	top: 30%;
 }
-
 .listNum {
 	display: flex;
 	flex-flow: row nowrap;

@@ -6,7 +6,7 @@
 <jsp:useBean id="board" class="board.Board" scope="page" />
 <jsp:setProperty name="board" property="boardTitle" />
 <jsp:setProperty name="board" property="boardContent" />
-<jsp:setProperty name="board" property="boardContent" />
+<jsp:setProperty name="board" property="teacherInfo" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +35,7 @@
 				script.println("</script>");
 			} else {
 				BoardDao boardDao = new BoardDao();
-				int result = boardDao.write(board.getBoardTitle(), userID, board.getBoardContent());
+				int result = boardDao.write(board.getTeacherInfo(), board.getBoardTitle(), userID, board.getBoardContent());
 				if (result == -1){
 					PrintWriter script = response.getWriter();
 					script.println("<script>");

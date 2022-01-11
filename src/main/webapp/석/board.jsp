@@ -28,12 +28,12 @@ request.setCharacterEncoding("utf-8");
   </head>
 
   <body>
-	  	<%
+	  	<%--
 	  	String userID = null;
 		if (session.getAttribute("sessionID") != null) {
 			userID = (String) session.getAttribute("sessionID");
-		}
-		
+		}--%>
+		<%
 		int pageNumber = 1;
   		if (request.getParameter("pageNumber") != null){
   			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
@@ -182,11 +182,12 @@ request.setCharacterEncoding("utf-8");
                 	<%
                 		BoardDao boardDao = new BoardDao();
                 		ArrayList<Board> list = boardDao.getList(pageNumber);
-                		for(int i = 0; i < list.size(); i++){
+                		for(int i = 0; i < list.size(); i++) {
                 	%>
                 	<tr>
-                        <td><a href="view.jsp?boardID=<%=list.get(i).getBoardID() %>">
-                         <!-- 강사 --> <%= list.get(i).getBoardTitle() %></a></td>
+                        <td><a style="text-decoration: none; color: black;" 
+                        href="view.jsp?boardID=<%=list.get(i).getBoardID() %>">
+                          [ <%= list.get(i).getTeacherInfo()%> ] <%= list.get(i).getBoardTitle() %></a></td>
                         <td><%=list.get(i).getUserID() %></td>
                         <td><%=list.get(i).getBoardDate() %></td>
                     </tr>
@@ -205,18 +206,18 @@ request.setCharacterEncoding("utf-8");
             </div>
             <div class="item">
                 <ol>
+                <%for(int i = 0; i < pageNumber; i++){
+                	if(boardDao.nextPage(pageNumber)){
+                %>
                     <li>
-                        <a href="#">1</a>
+                        <a href="board.jsp?pageNumber=<%=pageNumber%>"><%=i+1 %></a>
                     </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
+                <%
+               			pageNumber++;
+                	}
+                }
+                %>
+                <!-- 더 생각해보기 -->
                 </ol>
             </div>
             <div class="item">

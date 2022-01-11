@@ -111,11 +111,11 @@ request.setCharacterEncoding("utf-8");
 						<tr style="border-bottom:1px solid #000000;">
 							<td style="text-align:center; border-right:1px solid #000000;">강사선택</td>
 							<td>
-								<select name="teacher" style="margin: 3px 0 3px 10px;">
-		                            <option value="1">정보처리기사 필기 전준혁 강사</option>
-		                            <option value="2">정보처리기사 실기 서원 강사</option>
-		                            <option value="3">정보처리산업기사 필기 유진선 강사</option>
-		                            <option value="4">정보처리산업기사 실기 이지수 강사</option>
+								<select name="teacherInfo" style="margin: 3px 0 3px 10px;">
+		                            <option value="정보처리기사 필기 전준혁 강사">정보처리기사 필기 전준혁 강사</option>
+		                            <option value="정보처리기사 실기 서원 강사">정보처리기사 실기 서원 강사</option>
+		                            <option value="정보처리산업기사 필기 유진선 강사">정보처리산업기사 필기 유진선 강사</option>
+		                            <option value="정보처리산업기사 실기 이지수 강사">정보처리산업기사 실기 이지수 강사</option>
 		                        </select>
 							</td>
 						</tr>

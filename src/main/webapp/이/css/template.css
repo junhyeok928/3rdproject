@@ -119,23 +119,28 @@ span {
     display: flex;
     padding: 2px;
 }
+@keyframes blink-effect { 50% { opacity: 0; } } 
 .float1 {
     position: fixed;
-    width: 170px;
-    height: 200px;
+    width: 250px;
+    height: 300px;
     display: inline-block;
     right: 83%; 
-    top: 400px; 
-    background-color: gray;
+    top: 200px; 
     margin: 0;
+    animation: blink-effect 2s step-end infinite;
 }
 .float2 {
     position: fixed;
-    width: 170px;
-    height: 200px;
+    width: 250px;
+    height: 287px;
     display: inline-block;
     right: 83%; 
-    top: 650px; 
-    background-color: grey;
+    top: 500px; 
     margin: 0;
+    animation: blink-effect 2s step-end infinite;
+}
+
+.test{
+    height: 10px;
 }

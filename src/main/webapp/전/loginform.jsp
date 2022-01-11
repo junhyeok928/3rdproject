@@ -14,22 +14,23 @@ request.setCharacterEncoding("utf-8");
 <link rel="stylesheet" href="./css/template.css" />
 <link rel="stylesheet" href="./css/login.css" />
 <script type="text/javascript">
-function checkValue()
-{
-    inputForm = eval("document.loginInfo");
-    if(!inputForm.userId.value)
-    {
-        alert("아이디를 입력하세요");    
-        inputForm.userId.focus();
-        return false;
-    }
-    if(!inputForm.userPw.value)
-    {
-        alert("비밀번호를 입력하세요");    
-        inputForm.userPw.focus();
-        return false;
-    }
-}
+	function logout() {
+		alert("로그아웃 되었습니다.");
+	}
+
+	function checkValue() {
+		inputForm = eval("document.loginInfo");
+		if (!inputForm.userId.value) {
+			alert("아이디를 입력하세요");
+			inputForm.userId.focus();
+			return false;
+		}
+		if (!inputForm.userPw.value) {
+			alert("비밀번호를 입력하세요");
+			inputForm.userPw.focus();
+			return false;
+		}
+	}
 </script>
 </head>
 <body>
@@ -41,13 +42,14 @@ function checkValue()
 			<ul class="menu">
 				<%
 				String msg = request.getParameter("msg");
-				System.out.println(session.getAttribute("sessionID"));
-				if (session.getAttribute("sessionID")!=null) {
-				%><li><a href="#">로그아웃</a></li>
+
+				if (session.getAttribute("sessionID") != null) {
+				%><li><a href="#"><%=session.getAttribute("sessionID")%>님</a></li>
+				<li><a href="./logoutpro.jsp" onclick="logout()">로그아웃</a></li>
 				<%
 				} else {
 				%>
-				<li><a href="#">로그인</a></li>
+				<li><a href="./loginform.jsp">로그인</a></li>
 				<%
 				}
 				%>

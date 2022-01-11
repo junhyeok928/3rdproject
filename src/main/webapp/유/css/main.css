@@ -1,23 +1,43 @@
 @charset "UTF-8";
 
 div.first_sc{
-	width: 2000px;
-	height: 200px;
-	margin: 50px;
+	margin: 40px;
 	display: flex;
 	justify-content: center;
-	border-bottom: 2px solid #d4d4d4;
-	
+	border-bottom: 2px solid #808080;
+	padding-bottom: 50px;
 }
 div.top{
 	padding-right:50px;	
 }
-
-
+div.top > td >a:hover{
+	text-decoration: underline;
+    text-underline-position: under;
+}
+div.top > td >a{
+    text-align: left;
+    text-decoration: none;
+    line-height: 30px;
+    display: block;
+    white-space: nowrap;
+    color: black;
+}
 div.top3{
 	padding-left:50px;	
 	text-align:right;
 		
+}
+table td a{
+	text-align: left;
+    text-decoration: none;
+    line-height: 30px;
+    display: block;
+    white-space: nowrap;
+    color: black;
+}
+table td {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #444444;
 }
 li.tab_1 {
     font-weight: 600;
@@ -36,12 +56,25 @@ li.tab_2{
    border-right: 1px solid #fff;
    border-bottom: 1px solid #000;
 }
+.wrap li a{
+	text-decoration: underline;
+    text-underline-position: under;
+}
+.wrap li a{
+    text-align: left;
+    text-decoration: none;
+    line-height: 30px;
+    display: block;
+    white-space: nowrap;
+    color: black;
+}
+
 div.wrap {
     position: relative;
     width: 500px;
     margin: 0 auto;
 }
-.ul_list{
+.tb_list{
 	display: block;
 	text-align: left;
 }

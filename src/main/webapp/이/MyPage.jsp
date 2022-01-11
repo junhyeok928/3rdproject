@@ -38,7 +38,7 @@
 <body>
 	<header>
 		<div class="logo">
-			<a href="./main.jsp" style="text-decoration: none"><img class="logoimg" src="./img/logo.png" alt="" height="100px" /> </a>
+			<a href="/3rd_Project/전/main.jsp" style="text-decoration: none"><img class="logoimg" src="./img/logo.png" alt="" height="100px" /> </a>
 		</div>
 		<div class="headerbox">
 			<ul class="menu">
@@ -56,7 +56,12 @@
 				}
 				%>
 				<li><a href="#">회원가입</a></li>
-				<li><a href="/3rd_Project/이/MyPage.jsp">마이페이지</a></li>
+				<% 
+				if(session.getAttribute("sessionID") != null){
+
+				%>
+				<li><a href="#">마이페이지</a></li>
+				<%} %>			
 			</ul>
 		</div>
 	</header>

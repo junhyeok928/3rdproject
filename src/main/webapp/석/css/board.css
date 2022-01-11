@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+.container {
+	float: left;
+	width: 1018px;
+	position: relative;
+	left: 18%;
+}
+.leftmenu {
+	border-right: 1px solid #d7d5d5;
+	float: left;
+	width: 200px;
+	min-height: 750px;
+	margin-top:10px;
+}
+.content {
+	
+	float: right;
+	width: 800px;
+	min-height: 750px;
+}
+
+.boardlist {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	
+}
+.boardlist > li{
+	padding: 8px 0 0 3px;
+	margin-bottom: 5px;
+	
+}
+.boardlist > li > a {
+	text-decoration: none;
+	color: black;
+}
+.boardlist li a:hover {
+	text-decoration: underline;
+    text-underline-position: under;
+}
+.action {
+	font-weight: 700;
+} 
+
+/* 검색기능 */
+.search {
+	margin-bottom: 10px;
+	position: relative;
+	left: 52%;
+}
+.search input[type=submit] {
+	color: #ffffff;
+	background-color: #5e5e5e;
+	border-radius: 4px;
+	padding: 0 10px 2px 10px;
+	font-weight: bold;
+}
+
+/* 게시판테이블 */
+.table_maintext th {
+	background-color: #eeeeee;
+	text-align: center;
+	padding: 8px 0 8px 0;
+}
+.table_maintext td {
+	padding: 6px 0 6px 0;
+	border-bottom: 1px solid #dddddd;
+}
+.writeBtn {
+	margin-top: 10px;
+	font-size: 12px;
+	background-color: #dadada;
+	text-decoration: none;
+	color: #585858;
+	padding: 5px;
+	border-radius: 3px;
+	position: relative;
+	left: 95%;
+	top: 30%;
+}
+
+.listNum {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	position: relative;
+
+}
+i {
+	margin: 0 15px 0 15px;
+	color: black;
+}
+.listNum ol {
+	padding: 0;
+	margin: 0;
+	
+}
+.listNum ol li {
+	list-style: none;
+	float: left;
+	margin: 0 5px 0 5px;
+}
+.listNum ol li a {
+	text-decoration: none;
+	color: black;
+	font-size: 15px;
+}

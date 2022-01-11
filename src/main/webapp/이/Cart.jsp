@@ -185,8 +185,7 @@
 									<%Cart_DAO dao = new Cart_DAO();
 									DecimalFormat df = new DecimalFormat("###,###");
 									for(Cart_VO vo:dao.CartList()) {%>
-									<%!int tot = 0;%>	
-									<%tot += vo.getFinprice();%>
+									<%!int i=1; %>
 								<tr>
 									<td><input type="checkbox" name="cart" checked>
 									<td><%=vo.getTitle() %></td><td><%=vo.getName() %></td><td><%=vo.getCompose() %>강</td><td><%=df.format(vo.getPrice()) %>원</td><td><%=df.format(vo.getDisprice()) %>원</td><td><%=df.format(vo.getFinprice()) %>원</td>

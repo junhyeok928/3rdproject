@@ -1,6 +1,7 @@
 package VO;
 
 public class Cart_VO {
+	private int no;
 	private String title;
 	private String name;
 	private int compose;
@@ -11,14 +12,21 @@ public class Cart_VO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Cart_VO(String title, String name, int compose, int price, int disprice, int finprice) {
+	public Cart_VO(int no, String title, String name, int compose, int price, int disprice, int finprice) {
 		super();
+		this.no = no;
 		this.title = title;
 		this.name = name;
 		this.compose = compose;
 		this.price = price;
 		this.disprice = disprice;
 		this.finprice = finprice;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
 	}
 	public String getTitle() {
 		return title;

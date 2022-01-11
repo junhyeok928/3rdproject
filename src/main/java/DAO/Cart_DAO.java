@@ -64,6 +64,7 @@ public class Cart_DAO {
 			rs = pstmt.executeQuery(sql);
 			while(rs.next()) {
 				Cart_VO vo = new Cart_VO();
+				vo.setNo(rs.getInt("no"));
 				vo.setTitle(rs.getString("title"));
 				vo.setName(rs.getString("name"));
 				vo.setCompose(rs.getInt("compose"));

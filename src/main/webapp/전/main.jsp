@@ -48,9 +48,21 @@ request.setCharacterEncoding("utf-8");
             </div>
             <div class="headerbox">
                 <ul class="menu">
-                    <li><a href="./loginform.jsp">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
-                    <li><a href="#">마이페이지</a></li>
+                    <%
+				
+				String msg = request.getParameter("msg");
+				
+				if (session.getAttribute("sessionID")!=null) {
+				%><li><a href="./logoutpro.jsp">로그아웃</a></li>
+				<%
+				} else {
+				%>
+				<li><a href="./loginform.jsp">로그인</a></li>
+				<%
+				}
+				%>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="#">마이페이지</a></li>
                 </ul>
             </div>
         </header>

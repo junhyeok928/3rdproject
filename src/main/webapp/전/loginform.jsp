@@ -41,8 +41,8 @@ function checkValue()
 			<ul class="menu">
 				<%
 				String msg = request.getParameter("msg");
-
-				if (msg != null && msg.equals("1")) {
+				System.out.println(session.getAttribute("sessionID"));
+				if (session.getAttribute("sessionID")!=null) {
 				%><li><a href="#">로그아웃</a></li>
 				<%
 				} else {

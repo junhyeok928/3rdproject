@@ -15,22 +15,51 @@
         <link rel="stylesheet" href="./css/font.css">
         <link rel="stylesheet" href="./css/template.css">
         <link rel="stylesheet" href="/3rd_Project/이/MyPage.css" />
-    </head>
-    <body>
-        <header>
-            <div class="logo">
-                <a href="#" style="text-decoration: none"
-                    ><img class="logoimg" src="/3rd_Project/template/img/logo.png" alt="" height="100px" />
-                </a>
-            </div>
-            <div class="headerbox">
-                <ul class="menu">
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">회원가입</a></li>
-                    <li><a href="#">마이페이지</a></li>
-                </ul>
-            </div>
-        </header>
+<script type="text/javascript">
+	function logout() {
+		alert("로그아웃 되었습니다.");
+	}
+
+	function checkValue() {
+		inputForm = eval("document.loginInfo");
+		if (!inputForm.userId.value) {
+			alert("아이디를 입력하세요");
+			inputForm.userId.focus();
+			return false;
+		}
+		if (!inputForm.userPw.value) {
+			alert("비밀번호를 입력하세요");
+			inputForm.userPw.focus();
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<a href="./main.jsp" style="text-decoration: none"><img class="logoimg" src="./img/logo.png" alt="" height="100px" /> </a>
+		</div>
+		<div class="headerbox">
+			<ul class="menu">
+				<%
+				String msg = request.getParameter("msg");
+
+				if (session.getAttribute("sessionID") != null) {
+				%><li><a href="#"><%=session.getAttribute("sessionID")%>님</a></li>
+				<li><a href="/3rd_Project/전/logoutpro.jsp" onclick="logout()">로그아웃</a></li>
+				<%
+				} else {
+				%>
+				<li><a href="/3rd_Project/전/loginform.jsp">로그인</a></li>
+				<%
+				}
+				%>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="/3rd_Project/이/MyPage.jsp">마이페이지</a></li>
+			</ul>
+		</div>
+	</header>
         <nav>
             <div class="menubox">
                 <ul class="menu">
@@ -114,10 +143,10 @@
 						<span>마이페이지</span>
 						<ul class="mymenu">
 							<li>
-								<a href="" id="now">수강정보</a>
+								<a href="/3rd_Project/이/MyPage.jsp" id="now">수강정보</a>
 							</li>           
 							<li>
-								<a href="">장바구니</a>
+								<a href="/3rd_Project/이/Cart.jsp">장바구니</a>
 							</li>           
 							<li>
 								<a href="#" >주문/배송</a>

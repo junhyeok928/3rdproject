@@ -57,6 +57,18 @@
             .bar {
                 font-size: 22px;
             }
+            .btn {
+                margin-top: 20px;
+                width: 100%;
+                height: 50px;
+                font-size: 25px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                color: white;
+                background: darkgray;
+                font-family: "NEXON Lv1 Gothic OTF";
+            }
         </style>
     </head>
 
@@ -146,29 +158,29 @@
         </nav>
         <section>
             <div class="block"></div>
-            
+
             <form action="" class="inputForm">
                 <fieldset>
                     <h3>회원가입</h3>
                     <div style="display: flex; justify-content: center">
                         <div class="inputInfo">
-                            <div style="padding: 2px;">
+                            <div style="padding: 2px">
                                 <span>아이디</span>
                                 <input type="text" name="" id="id" />
                             </div>
-                            <div style="padding: 2px;">
+                            <div style="padding: 2px">
                                 <span>비밀번호</span>
                                 <input type="password" name="" id="password" />
                             </div>
-                            <div style="padding: 2px;">
+                            <div style="padding: 2px">
                                 <span>비밀번호 확인</span>
                                 <input type="password" name="" id="password_check" />
                             </div>
-                            <div style="padding: 2px;">
+                            <div style="padding: 2px">
                                 <span>이름</span>
                                 <input type="text" name="" id="name" />
                             </div>
-                            <div style="padding: 2px;">
+                            <div style="padding: 2px">
                                 <span>휴대전화</span>
                                 <div class="selectPhone">
                                     <select name="" id="" class="firstnum">
@@ -184,7 +196,7 @@
                                     <input type="text" name="" id="" size="2" class="number" />
                                 </div>
                             </div>
-                            <div style="padding: 2px;">
+                            <div style="padding: 2px">
                                 <span>이메일</span>
                                 <input type="text" name="" id="email" />
                             </div>
@@ -624,8 +636,12 @@
                         </div>
                     </div>
                     <div class="submitBtn">
-                        <input id="join" type="submit" value="회원가입" />
+                        <input id="join" type="submit" value="회원가입" class="btn" />
                     </div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
                 </fieldset>
             </form>
         </section>

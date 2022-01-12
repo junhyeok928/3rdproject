@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="./css/font.css">
         <link rel="stylesheet" href="./css/template.css">
         <link rel="stylesheet" href="/3rd_Project/이/Cart.css?after" />
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
 	function logout() {
 		alert("로그아웃 되었습니다.");
@@ -32,6 +33,16 @@
 			alert("비밀번호를 입력하세요");
 			inputForm.userPw.focus();
 			return false;
+		}
+	}
+	
+	function CartAll(obj){
+		var chbox = document.getElementsByName("cart").length;
+		if(document.getElementById("cart").checked==true){ 
+			for(var i=0; i<chbox; i++) document.getElementsByName("cart")[i].checked=true;
+		}
+		if(document.getElementById("cart").checked==false){
+		    for(var i=0; i<chbox; i++) document.getElementsByName("cart")[i].checked=false;  
 		}
 	}
 </script>
@@ -195,7 +206,8 @@
 							</tbody>
 							<tfoot>
 								<tr>
-									<th colspan="6">총 결제금액</th>
+									<th><input type="checkbox" id="cart" checked onclick="CartAll(this)"></th>
+									<th colspan="5">총 결제금액</th>
 									<th>
 										
 									</th>

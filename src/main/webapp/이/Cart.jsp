@@ -38,11 +38,25 @@
 	
 	function CartAll(obj){
 		var chbox = document.getElementsByName("cart").length;
-		if(document.getElementById("cart").checked==true){ 
+		if(document.getElementById("cart").checked==true) { 
 			for(var i=0; i<chbox; i++) document.getElementsByName("cart")[i].checked=true;
 		}
-		if(document.getElementById("cart").checked==false){
+		if(document.getElementById("cart").checked==false) {
 		    for(var i=0; i<chbox; i++) document.getElementsByName("cart")[i].checked=false;  
+		}
+	}
+	
+	function CartCk(obj) {
+		document.getElementById("cart").checked=false;	
+		var chbox = document.getElementsByName("cart").length;
+		var cnt = 0;
+		for(var i=0; i<chbox; i++) {
+			if(document.getElementsByName("cart")[i].checked==true) { 
+				cnt++;
+				if(chbox==cnt) {
+					document.getElementById("cart").checked=true;	
+				}
+			}
 		}
 	}
 </script>
@@ -198,7 +212,7 @@
 									for(Cart_VO vo:dao.CartList()) {%>
 									<%!int i=1; %>
 								<tr>
-									<td><input type="checkbox" name="cart" checked>
+									<td><input type="checkbox" name="cart" checked onclick="CartCk(this)">
 									<td><%=vo.getTitle() %></td><td><%=vo.getName() %></td><td><%=vo.getCompose() %>강</td><td><%=df.format(vo.getPrice()) %>원</td><td><%=df.format(vo.getDisprice()) %>원</td><td><%=df.format(vo.getFinprice()) %>원</td>
 									<td><input type="button" name="del" value="삭제" class="del">
 								</tr>

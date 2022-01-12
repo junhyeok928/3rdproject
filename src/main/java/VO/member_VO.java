@@ -1,61 +1,69 @@
 package VO;
 
 public class member_VO {
-	private int user_no;
-	private String user_id;
-	private String user_pw;
-	private String user_name;
-	private String user_phone;
-	private String user_email;
+	private String id;
+	private String pw;
+	private String name;
+	private String phone1;
+	private String phone2;
+	private String phone3;
+	private String email;
+	public member_VO(String id, String pw, String name, String phone1, String phone2, String phone3, String email) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.phone1 = phone1;
+		this.phone2 = phone2;
+		this.phone3 = phone3;
+		this.email = email;
+	}
 	public member_VO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public member_VO(int user_no, String user_id, String user_pw, String user_name, String user_phone,
-			String user_email) {
-		super();
-		this.user_no = user_no;
-		this.user_id = user_id;
-		this.user_pw = user_pw;
-		this.user_name = user_name;
-		this.user_phone = user_phone;
-		this.user_email = user_email;
+	public String getId() {
+		return id;
 	}
-	public int getUser_no() {
-		return user_no;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public void setUser_no(int user_no) {
-		this.user_no = user_no;
+	public String getPw() {
+		return pw;
 	}
-	public String getUser_id() {
-		return user_id;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public String getName() {
+		return name;
 	}
-	public String getUser_pw() {
-		return user_pw;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public void setUser_pw(String user_pw) {
-		this.user_pw = user_pw;
+	public String getPhone1() {
+		return phone1;
 	}
-	public String getUser_name() {
-		return user_name;
+	public void setPhone1(String phone1) {
+		this.phone1 = phone1;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public String getPhone2() {
+		return phone2;
 	}
-	public String getUser_phone() {
-		return user_phone;
+	public void setPhone2(String phone2) {
+		this.phone2 = phone2;
 	}
-	public void setUser_phone(String user_phone) {
-		this.user_phone = user_phone;
+	public String getPhone3() {
+		return phone3;
 	}
-	public String getUser_email() {
-		return user_email;
+	public void setPhone3(String phone3) {
+		this.phone3 = phone3;
 	}
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
+	public String getEmail() {
+		return email;
 	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	
 }

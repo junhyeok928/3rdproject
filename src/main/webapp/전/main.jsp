@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="DAO.main_DAO"
+	import="VO.notice_VO"%>
 <%
 request.setCharacterEncoding("utf-8");
 %>
@@ -59,13 +60,14 @@ table td {
 				<%
 				}
 				%>
-				<li><a href="#">회원가입</a></li>
-				<% 
-				if(session.getAttribute("sessionID") != null){
-
+				<li><a href="./joinform.jsp">회원가입</a></li>
+				<%
+				if (session.getAttribute("sessionID") != null) {
 				%>
 				<li><a href="#">마이페이지</a></li>
-				<%} %>			
+				<%
+				}
+				%>			
 			</ul>
 		</div>
 	</header>
@@ -108,60 +110,78 @@ table td {
 	<div>
 		<img class="float2" src="./img/banner2.png" alt="오류">
 	</div>
+
 	<div class="first_sc">
 		<div class="top">
 			<table>
 				<tr>
-					<td># 인기강의 TOP3</td>
+					<td style="border: 0px; font-size: 25px; background-color: skyblue; border-radius: 10px;">#
+						인기강의 TOP3</td>
 				<tr>
 				<tr>
-					<td>1위 정보처리기사 필기+실기</td>
+					<td><a href="#">1위 정보처리기사 필기+실기</a></td>
 				</tr>
 				<tr>
-					<td>2위 정보처리산업기사 필기+실기</td>
+					<td><a href="#">2위 정보처리산업기사 필기+실기</a></td>
 				</tr>
 				<tr>
-					<td>3위 정보처리기사 필기</td>
+					<td><a href="#">3위 정보처리기사 필기</a></td>
 				</tr>
 			</table>
 		</div>
 		<div class="top">
 			<table>
 				<tr>
-					<td># 인기교재 TOP3</td>
+					<td
+						style="border: 0px; font-size: 25px; background-color: skyblue; border-radius: 10px;">#
+						인기교재 TOP3</td>
 				<tr>
 				<tr>
-					<td>1위 2022 이기적 정보처리기사 필기</td>
+					<td><a href="#">1위 2022 이기적 정보처리기사 필기</a></td>
 				</tr>
 				<tr>
-					<td>2위 2022 시나공 정보처리기사 필기</td>
+					<td><a href="#">2위 2022 시나공 정보처리기사 필기</a></td>
 				</tr>
 				<tr>
-					<td>3위 2022 수제비 정보처리기사 필기</td>
+					<td><a href="#">3위 2022 수제비 정보처리기사 필기</a></td>
 				</tr>
 			</table>
 		</div>
-
-		<div class="top3">
-			<h2>2022 정보처리기사 필기</h2>
-			<h3></h3>
-		</div>
+	
+			<div class="top3">
+				<h2>2022 정보처리기사 필기</h2>
+				<h3></h3>
+			</div>
 	</div>
+		
 	<section>
-		<div class="wrap">
-			<ul>
-				<li class="tab_1"><a>공지사항</a></li>
-				<li class="tab_2"><a>후기게시판</a></li>
-				<li class="tab_2"><a>질문게시판</a></li>
-				<li class="tab_2"><a>자유게시판</a></li>
-			</ul>
-			<ul class="ul_list">
-				<li><a>공지사항</a></li>
-				<li><a>공지사항</a></li>
-				<li><a>공지사항</a></li>
-				<li><a>공지사항</a></li>
-			</ul>
-		</div>
+			<div class="wrap">
+				<ul>
+					<li class="tab_1"><a href="#">공지사항</a></li>
+					<li class="tab_2"><a href="#">후기게시판</a></li>
+					<li class="tab_2"><a href="#">질문게시판</a></li>
+					<li class="tab_2"><a href="#">자유게시판</a></li>
+				</ul>
+				<%
+				main_DAO dao = new main_DAO();
+				%>
+				<table class="tb_list" style="border: 0px;">
+					<%
+					for (notice_VO n : dao.noticeList()) {
+					%>
+					<tr>
+						<td><%=n.getNotice_number()%>  </td>
+						<td width="300px"><%=n.getNotice_title()%></td>
+						<td><%=n.getNotice_writer()%></td>
+						<td><%=n.getNotice_hiredate()%></td>
+					</tr>
+					<%
+					}
+					%>
+				</table>
+	
+	
+			</div>
 	</section>
 	<footer>
 		<div class="foot1" style="display: flex">

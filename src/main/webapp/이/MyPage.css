@@ -87,6 +87,11 @@ section > div {
 	font-weight: normal;
 	font-size: 20px;
 }
+.mycourse > tbody > tr > th > a:hover {
+	font-weight: bold;
+    text-decoration: underline;
+    text-underline-position: under;
+}
 .mycourse > tbody > tr > th {
 	border-top: 1px solid;
 	padding: 10px;

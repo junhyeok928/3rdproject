@@ -14,7 +14,7 @@
         <link rel="shortcut icon" href="./img/favicon.ico">
         <link rel="stylesheet" href="./css/font.css">
         <link rel="stylesheet" href="./css/template.css">
-        <link rel="stylesheet" href="/3rd_Project/이/MyPage.css" />
+        <link rel="stylesheet" href="/3rd_Project/이/MyPage.css?after" />
 <script type="text/javascript">
 	function logout() {
 		alert("로그아웃 되었습니다.");

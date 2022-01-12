@@ -1,4 +1,4 @@
-package board;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import VO.Board;
 
 public class BoardDao {
 	private Connection con;
@@ -21,7 +23,7 @@ public class BoardDao {
 		con = DriverManager.getConnection(info,"scott","tiger");
 	}
 	public String getDate() {
-		String sql = "SELECT to_char(sysdate, 'YY-MM-DD') FROM dual";
+		String sql = "SELECT to_char(sysdate, 'YYYY-MM-DD') FROM dual";
 		try {
 			setConn();
 			PreparedStatement pstmt = con.prepareStatement(sql);
@@ -127,11 +129,29 @@ public class BoardDao {
 		}
 		return false;
 	}
-	public static void main(String[] args) {
-		BoardDao bd = new BoardDao();
-		System.out.println(bd.nextPage(3)); 
-		
-	}
 	
+	public Board getBoard(int boardID) {
+		String sql = "SELECT * FROM RVBOARD WHERE BOARDID = ?";
+		try {
+			setConn();
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, boardID);
+			rs = pstmt.executeQuery();
+			if ( rs.next()) {
+				Board board = new Board();
+				board.setBoardID(rs.getInt(1));
+				board.setTeacherInfo(rs.getString(2));
+				board.setUserID(rs.getString(3));
+				board.setBoardTitle(rs.getString(4));
+				board.setBoardDate(rs.getString(5));
+				board.setBoardContent(rs.getString(6));
+				return board;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 }

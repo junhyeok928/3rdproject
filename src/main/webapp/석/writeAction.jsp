@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="board.BoardDao" %>
+<%@ page import="DAO.BoardDao" %>
 <%@ page import="java.io.PrintWriter" %>
 <%request.setCharacterEncoding("utf-8");%>
-<jsp:useBean id="board" class="board.Board" scope="page" />
+<jsp:useBean id="board" class="VO.Board" scope="page" />
 <jsp:setProperty name="board" property="boardTitle" />
 <jsp:setProperty name="board" property="boardContent" />
 <jsp:setProperty name="board" property="teacherInfo" />

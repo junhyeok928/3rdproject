@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="VO.Board" %>
+<%@ page import="DAO.BoardDao" %>
 <%
 request.setCharacterEncoding("utf-8");
 %>
@@ -22,9 +25,40 @@ request.setCharacterEncoding("utf-8");
 		alert("로그아웃 되었습니다.");
 	}
 </script>
+<style type="text/css">
+.viewTable td{
+	padding: 8px 0 8px 15px;
+	font-size: 15px;
+	border-bottom:1px solid #dddddd;
+}
+.viewTable{
+	border-top: 2px solid black; 
+	margin-top:60px;
+}
+
+
+</style>
 </head>
 
 <body>
+	<%
+	String userID = null;
+	if (session.getAttribute("sessionID") != null) {
+		userID = (String) session.getAttribute("sessionID");
+	}
+	int boardID = 0;
+	if (request.getParameter("boardID") != null) {
+		boardID = Integer.parseInt(request.getParameter("boardID"));
+	}
+	if (boardID == 0) {
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('유효하지 않은 글입니다.')");
+		script.println("location.href = 'board.jsp'");
+		script.println("</script>");
+	}
+	Board board = new BoardDao().getBoard(boardID);
+	%>
 	<header>
 		<div class="logo">
 			<a href="#" style="text-decoration: none"><img
@@ -93,41 +127,41 @@ request.setCharacterEncoding("utf-8");
 			</ul>
 		</div>
 		<div class="content">
-			<form method="post" action="writeAction.jsp">
-				<table class="writeTable" style="width: 790px; text-align: left;">
-					<col width="15%">
-					<col width="*">
-					<thead>
-						<tr>
-							<th colspan="2">게시글 작성</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr style="border-bottom:1px solid #000000;">
-							<td style="text-align:center; border-right:1px solid #000000;">제목</td>
-							<td><input type="text" class="bTitle" placeholder="글 제목"
-								name="boardTitle" maxlength="20"></td>
-						</tr>
-						<tr style="border-bottom:1px solid #000000;">
-							<td style="text-align:center; border-right:1px solid #000000;">강사선택</td>
-							<td>
-								<select name="teacherInfo" style="margin: 3px 0 3px 10px;">
-		                            <option value="정보처리기사 필기 전준혁 강사">정보처리기사 필기 전준혁 강사</option>
-		                            <option value="정보처리기사 실기 서원 강사">정보처리기사 실기 서원 강사</option>
-		                            <option value="정보처리산업기사 필기 유진선 강사">정보처리산업기사 필기 유진선 강사</option>
-		                            <option value="정보처리산업기사 실기 이지수 강사">정보처리산업기사 실기 이지수 강사</option>
-		                        </select>
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2"><textarea class="bContent" placeholder="글 내용"
-									name="boardContent" maxlength="1000" style=""></textarea></td>
-						</tr>
-					</tbody>
-				</table>
-				<input type="submit" class="writeBtn" value="등록" style="border:none;">
-			</form>
-			
+			<div>
+          		<h3>후기게시판</h3>
+       		</div>
+			<table class="viewTable" style="width: 790px; text-align: left; ">
+				<col width="75%">
+				<col width="*">
+				<thead>
+					<tr>
+						<td colspan="2" style="padding: 8px 0 8px 15px; font-size: 16px; background-color: #fafafa;">
+						[ <%=board.getTeacherInfo()%> ] <%=board.getBoardTitle() %></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%=board.getUserID() %></td>
+						<td><%=board.getBoardDate() %></td>
+					</tr>
+					<tr>
+						<td colspan="2" >
+							<div style="min-height: 250px;"><%=board.getBoardContent() %></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div style="margin-top:30px;">
+ 			<a href="/board.jsp" class="btn">목록</a>
+			<%
+				if(userID!=null && userID.equals(board.getUserID())){
+			%>
+					<a href="#?boardID=<%=boardID %>" class="btn2">수정</a>
+					<a href="#?boardID=<%=boardID %>" class="btn2">삭제</a>
+			<%
+				}
+			%>
+			</div>
 		</div>
 	</div>
 	<section></section>

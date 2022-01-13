@@ -53,14 +53,8 @@ request.setCharacterEncoding("utf-8");
 				<%
 				}
 				%>
-				<li><a href="./joinform.jsp">회원가입</a></li>
-				<%
-				if (session.getAttribute("sessionID") != null) {
-				%>
+				<li><a href="#">회원가입</a></li>
 				<li><a href="#">마이페이지</a></li>
-				<%
-				}
-				%>
 			</ul>
 		</div>
 	</header>
@@ -97,12 +91,8 @@ request.setCharacterEncoding("utf-8");
 			</ul>
 		</div>
 	</nav>
-	<div>
-		<img class="float1" src="./img/banner1.png" alt="오류">
-	</div>
-	<div>
-		<img class="float2" src="./img/banner2.png" alt="오류">
-	</div>
+	<div class="float1">베너</div>
+	<div class="float2">베너</div>
 	<section>
 		<form action="./loginpro.jsp" method="post" class="logform" name="loginInfo" onsubmit="return checkValue()">
 			<fieldset class="login">

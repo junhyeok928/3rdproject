@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.sql.*" import="DAO.main_DAO"
-	import="VO.notice_VO"%>
+	pageEncoding="UTF-8" import="java.sql.*" import="VO.daily_VO"
+	import="DAO.daily_DAO"%>
 
 <%
 request.setCharacterEncoding("utf-8");
@@ -15,26 +15,31 @@ request.setCharacterEncoding("utf-8");
 <link rel="shortcut icon" href="./img/favicon.ico">
 <link rel="stylesheet" href="./css/font.css">
 <link rel="stylesheet" href="./css/template.css">
-<link rel="stylesheet" href="./css/main.css?ver=1.8">
+<link rel="stylesheet" href="./css/daily.css?ver=1.2">
 <style>
-
+#content4 table{
+	width:80%;
+}
 </style>
+
+
+
 </head>
+<script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
-	window.onload = function() {
-		var h3Obj = document.querySelector("h3");
-		var today = new Date();
-		var dday = new Date(2022, 03, 05);
-		var gap = dday.getTime() - today.getTime();
-		var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
-		h3Obj.innerText = "D-Day " + result + "일";
-	}
+$("document").ready(function(){
+
+	$('#hidden4').hide();
+	$("#button4").click(function(){
+		$('#hidden4').show();
+	});
+});
 </script>
 <body>
 	<header>
 		<div class="logo">
-			<a href="#" style="text-decoration: none"><img
-				class="logoimg" src="./img/logo.png" alt="" height="100px" /> </a>
+			<a href="#" style="text-decoration: none"><img class="logoimg"
+				src="./img/logo.png" alt="" height="100px" /> </a>
 		</div>
 		<div class="headerbox">
 			<ul class="menu">
@@ -52,12 +57,13 @@ request.setCharacterEncoding("utf-8");
 				}
 				%>
 				<li><a href="#">회원가입</a></li>
-				<% 
-				if(session.getAttribute("sessionID") != null){
-
+				<%
+				if (session.getAttribute("sessionID") != null) {
 				%>
 				<li><a href="#">마이페이지</a></li>
-				<%} %>	
+				<%
+				}
+				%>
 			</ul>
 		</div>
 	</header>
@@ -100,79 +106,44 @@ request.setCharacterEncoding("utf-8");
 	<div>
 		<img class="float2" src="./img/banner2.png" alt="오류">
 	</div>
+	<div class="daily">
+		<h2>Daily 문제</h2>
+		<ul class="menu2">
+			<li class="d_font"><a href="#">정보처리기사</a>
+				<ul class="submenu2">
+					<li><a href="daily1.jsp">필기문제</a></li>
+					<li><a href="daily2.jsp">실기문제</a></li>
+				</ul></li>
 
-	<div class="first_sc">
-		<div class="top">
-			<table>
-				<tr>
-					<td style="border: 0px; font-size: 25px; background-color: skyblue; border-radius: 10px;">#
-						인기강의 TOP3</td>
-				<tr>
-				<tr>
-					<td><a href="#">1위 정보처리기사 필기+실기</a></td>
-				</tr>
-				<tr>
-					<td><a href="#">2위 정보처리산업기사 필기+실기</a></td>
-				</tr>
-				<tr>
-					<td><a href="#">3위 정보처리기사 필기</a></td>
-				</tr>
-			</table>
-		</div>
-		<div class="top">
-			<table>
-				<tr>
-					<td
-						style="border: 0px; font-size: 25px; background-color: skyblue; border-radius: 10px;">#
-						인기교재 TOP3</td>
-				<tr>
-				<tr>
-					<td><a href="#">1위 2022 이기적 정보처리기사 필기</a></td>
-				</tr>
-				<tr>
-					<td><a href="#">2위 2022 시나공 정보처리기사 필기</a></td>
-				</tr>
-				<tr>
-					<td><a href="#">3위 2022 수제비 정보처리기사 필기</a></td>
-				</tr>
-			</table>
-		</div>
-	
-			<div class="top3">
-				<h2>2022 정보처리기사 필기</h2>
-				<h3></h3>
-			</div>
+			<li class="d_font"><a href="#">정보처리산업기사</a>
+				<ul class="submenu2">
+					<li><a href="daily3.jsp">필기문제</a></li>
+					<li><a href="daily4.jsp">실기문제</a></li>
+				</ul></li>
+		</ul>
 	</div>
-		
-	<section>
-			<div class="wrap">
-				<ul>
-					<li class="tab_1"><a href="#">공지사항</a></li>
-					<li class="tab_2"><a href="#">후기게시판</a></li>
-					<li class="tab_2"><a href="#">질문게시판</a></li>
-					<li class="tab_2"><a href="#">자유게시판</a></li>
-				</ul>
+	<div class="content">
+	
+			<%
+			daily_DAO dao = new daily_DAO();
+			%>
+		<div id="content4">
+
+			<table style="border: 0px;">
 				<%
-				main_DAO dao = new main_DAO();
+			for (daily_VO d : dao.dailyList4()) {
+			%>
+				<tr><td ><%=d.getSysdate()%></td></tr>
+				<tr><td width="300px"><%=d.getDaily_title()%></td></tr>
+				<tr><td><%=d.getDaily_content()%></td></tr>
+				<tr><td id="hidden4"><%=d.getDaily_answer()%></td></tr>
+				<%
+				}
 				%>
-				<table class="tb_list" style="border: 0px;">
-					<%
-					for (notice_VO n : dao.noticeList()) {
-					%>
-					<tr>
-						<td><%=n.getNotice_number()%>  </td>
-						<td width="300px"><%=n.getNotice_title()%></td>
-						<td><%=n.getNotice_writer()%></td>
-						<td><%=n.getNotice_hiredate()%></td>
-					</tr>
-					<%
-					}
-					%>
-				</table>
-	
-	
-			</div>
-	</section>
+			</table>
+			<input type="button" id="button4" value="정답확인"/>
+		</div>
+	</div>
 	<footer>
 		<div class="foot1" style="display: flex">
 			<span> 대표 : 전준혁 </span> <span> 주소 : 충청남도 천안시 불당 26로 99 </span> <span>

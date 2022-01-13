@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import VO.member_VO;
 
-public class member_DAO {
+public class course_DAO {
 	private Connection con;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -50,23 +50,21 @@ public class member_DAO {
 				e1.printStackTrace();
 			}
 		}
-
 	}
-
-	public void insertMember(member_VO member) {
+	
+	public void course_cart(String course_name, String teacher_name, String course_composition, String course_price, String user_id) {
 		try {
 			setConn();
-			String sql = "insert into Users \r\n"
-					+ "values((SELECT TO_NUMBER(NVL(MAX(USER_NO), '0')) + 1 FROM USERS u )\r\n"
-					+ ",?,?,?,?,?)";
+			String sql = "INSERT INTO course_cart values(?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 
-			pstmt.setString(1, member.getId());
-			pstmt.setString(2, member.getPw());
-			pstmt.setString(3, member.getName());
-			pstmt.setString(4, (member.getPhone1() + "-" + member.getPhone2() + "-" + member.getPhone3()));
-			pstmt.setString(5, member.getEmail());
-			pstmt.executeQuery();
+			pstmt.setString(1, course_name);
+			pstmt.setString(2, teacher_name);
+			pstmt.setString(3, course_composition);
+			pstmt.setString(4, course_price);
+			pstmt.setString(5, user_id);
+			
+			pstmt.executeUpdate();
 			pstmt.close();
 			con.close();
 		} catch (SQLException e) {
@@ -84,41 +82,4 @@ public class member_DAO {
 
 		}
 	}
-
-	public int loginCheck(String id, String pw) {
-		int x = -1;
-		try {
-			setConn();
-			con.setAutoCommit(false);
-			String sql = "select * from Users where user_id = ? and user_pw = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);
-			pstmt.setString(2, pw);
-			pstmt.executeQuery();
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				x = 1;
-			} else {
-				x = 0;
-			}
-			pstmt.close();
-			con.close();
-
-		} catch (SQLException e) {
-			System.out.println("DB관련 예외:" + e.getMessage());
-			closeRsc();
-			try {
-				con.rollback();
-			} catch (SQLException e1) {
-				// TODO: handle exception
-				e1.printStackTrace();
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("일반 예외:" + e.getMessage());
-
-		}
-		return x;
-	}
-
 }

@@ -70,7 +70,7 @@ public class member_DAO {
 			pstmt.close();
 			con.close();
 		} catch (SQLException e) {
-			System.out.println("DB관련 예외:" + e.getMessage());
+			System.out.println("DB예외:" + e.getMessage());
 			closeRsc();
 			try {
 				con.rollback();
@@ -80,7 +80,7 @@ public class member_DAO {
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("일반 예외:" + e.getMessage());
+			System.out.println("일반예외:" + e.getMessage());
 
 		}
 	}

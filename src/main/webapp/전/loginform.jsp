@@ -97,8 +97,12 @@ request.setCharacterEncoding("utf-8");
 			</ul>
 		</div>
 	</nav>
-	<div class="float1">베너</div>
-	<div class="float2">베너</div>
+	<div>
+		<img class="float1" src="./img/banner1.png" alt="오류">
+	</div>
+	<div>
+		<img class="float2" src="./img/banner2.png" alt="오류">
+	</div>
 	<section>
 		<form action="./loginpro.jsp" method="post" class="logform" name="loginInfo" onsubmit="return checkValue()">
 			<fieldset class="login">

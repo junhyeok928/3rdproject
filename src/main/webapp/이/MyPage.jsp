@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="DAO.test_dao"
-    import="VO.test_vo"
+    import="DAO.User_Course_DAO"
+    import="VO.User_Course_VO"
     %>
-<%request.setCharacterEncoding("utf-8");%>
+<%
+request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html lang="kr">
     <head>
@@ -58,9 +60,8 @@
 				<li><a href="#">회원가입</a></li>
 				<% 
 				if(session.getAttribute("sessionID") != null){
-
 				%>
-				<li><a href="#">마이페이지</a></li>
+				<li><a href="/3rd_Project/이/MyPage.jsp">마이페이지</a></li>
 				<%} %>			
 			</ul>
 		</div>
@@ -173,7 +174,7 @@
 				<div class="coursebox">
 					<span class="title">수강정보</span>
 					<%
-						test_dao dao = new test_dao();
+					User_Course_DAO dao = new User_Course_DAO();
 					%>
 					<table class="recodes">
 					<col width="25%">
@@ -184,40 +185,31 @@
 							<tr><th>강좌명</th><th>시작일</th><th>종료일</th><th>상태</th></tr>
 						</thead>
 						<tbody>
-						<%for(test_vo v:dao.test()){%>
-							<tr><td><%=v.getName() %></td><td><%=v.getSt() %></td><td><%=v.getFn() %></td><td><%=v.getStat() %></td></tr>
+						<%
+						String id = (String)session.getAttribute("sessionID");
+						for(User_Course_VO vo:dao.User_CourseList(id)) {
+						%>
+							<tr><td><%=vo.getTitle() %></td><td><%=vo.getStart_date() %></td><td><%=vo.getFinish_date() %></td><td><%=vo.getState() %></td></tr>
 						<%} %>
 						</tbody>
 					</table>
 					<span class="title2">나의강의실</span>
 					<table class="mycourse">
-					<col width="25%">
+					<col width="30">
 					<col width="30%">
-					<col width="25%">
-					<col width="20%">
+					<col width="35%">
 						<tbody>			
+							<%for(User_Course_VO vo:dao.User_CourseList(id)) { %>
 							<tr>
-								<th rowspan="2"><img src=/javaexp/z01_img/쮸애기.jpg alt="이미지 오류"></th>
-								<th>정보처리기사 필기</th>
-								<th>전준혁 강사</th>
+								<th><%=vo.getTitle() %></th>
+								<th><%=vo.getName() %> 강사</th>
 								<th rowspan="2"><a href="#">강좌 바로가기</a></th>
 							</tr>
 							<tr>
-								<td>2/95강</td>
-								<td>2%</td>
+								<td><%=vo.getComposeing() %>/<%=vo.getCompose() %>강</td>
+								<td><%=(int)(((double)vo.getComposeing()/vo.getCompose())*100.0) %>%</td>
 							</tr>
-						</tbody>
-						<tbody>			
-							<tr>
-								<th rowspan="2"><img src=/javaexp/z01_img/쮸애기.jpg alt="이미지 오류"></th>
-								<th>정보처리기사 실기</th>
-								<th>유진선 강사</th>
-								<th rowspan="2"><a href="#">강좌 바로가기</a></th>
-							</tr>
-							<tr>
-								<td>4/57강</td>
-								<td>7%</td>
-							</tr>
+							<%} %>
 						</tbody>
 					</table>
 				</div>

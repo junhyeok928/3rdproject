@@ -15,7 +15,7 @@
        	<link rel="shortcut icon" href="./img/favicon.ico">
         <link rel="stylesheet" href="./css/font.css">
         <link rel="stylesheet" href="./css/template.css">
-        <link rel="stylesheet" href="/3rd_Project/이/Cart.css?after" />
+        <link rel="stylesheet" href="/3rd_Project/이/Cart.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
 	function logout() {
@@ -36,7 +36,43 @@
 		}
 	}
 	
-	function CartAll(obj){
+	var CartFnPr = function() {
+		var result = 0;
+		var chbox = document.getElementsByName("cart").length;
+		for(var i=0; i<chbox; i++) {
+			var price = parseInt(document.getElementsByName("cart")[i].value);
+			if(document.getElementsByName("cart")[i].checked==true) {
+				result += price;
+			}
+		document.getElementById("Fnresult").innerText = result.toLocaleString() + "원";
+		}
+	}
+	
+	var CartDisPr = function() {
+		var result = 0;
+		var chbox = document.getElementsByName("cart").length;
+		for(var i=0; i<chbox; i++) {
+			var price = parseInt(document.getElementsByName("cart")[i].dataset.disvalue);
+			if(document.getElementsByName("cart")[i].checked==true) {
+				result += price;
+			}
+		document.getElementById("Disresult").innerText = result.toLocaleString() + "원";
+		}
+	}
+	
+	var CartPr = function() {
+		var result = 0;
+		var chbox = document.getElementsByName("cart").length;
+		for(var i=0; i<chbox; i++) {
+			var price = parseInt(document.getElementsByName("cart")[i].dataset.value);
+			if(document.getElementsByName("cart")[i].checked==true) {
+				result += price;
+			}
+		document.getElementById("result").innerText = result.toLocaleString() + "원";
+		}
+	}
+		
+	function CartAll(){
 		var chbox = document.getElementsByName("cart").length;
 		if(document.getElementById("cart").checked==true) { 
 			for(var i=0; i<chbox; i++) document.getElementsByName("cart")[i].checked=true;
@@ -44,9 +80,12 @@
 		if(document.getElementById("cart").checked==false) {
 		    for(var i=0; i<chbox; i++) document.getElementsByName("cart")[i].checked=false;  
 		}
+		CartFnPr();
+		CartDisPr();
+		CartPr();
 	}
 	
-	function CartCk(obj) {
+	function CartCk() {
 		document.getElementById("cart").checked=false;	
 		var chbox = document.getElementsByName("cart").length;
 		var cnt = 0;
@@ -57,6 +96,30 @@
 					document.getElementById("cart").checked=true;	
 				}
 			}
+		}
+		CartFnPr();
+		CartDisPr();
+		CartPr();
+	}
+	
+	function pay() {
+		var cnt = 0;
+		var chbox = document.getElementsByName("cart").length;
+		for(var i=0; i<chbox; i++) {
+			if(document.getElementsByName("cart")[i].checked==true) { 
+				cnt++;
+			}
+		}
+		if(cnt<=0) {
+			alert("구매하실 상품을 선택해주세요.");
+		} else {
+			var ch = confirm("선택된 상품 " + cnt + "개를 결제하시겠습니까?");
+		}
+		
+		if(ch==1) {
+			alert("결제 완료되었습니다.");
+		} else if(ch==0){
+			alert("결제 취소되었습니다.");
 		}
 	}
 </script>
@@ -86,7 +149,7 @@
 				if(session.getAttribute("sessionID") != null){
 
 				%>
-				<li><a href="#">마이페이지</a></li>
+				<li><a href="/3rd_Project/이/MyPage.jsp">마이페이지</a></li>
 				<%} %>			
 			</ul>
 		</div>
@@ -207,23 +270,30 @@
 								</tr>
 							</thead>
 							<tbody>
-									<%Cart_DAO dao = new Cart_DAO();
-									DecimalFormat df = new DecimalFormat("###,###");
-									for(Cart_VO vo:dao.CartList()) {%>
-									<%!int i=1; %>
+								<%Cart_DAO dao = new Cart_DAO();
+								DecimalFormat df = new DecimalFormat("###,###");
+								String id = (String)session.getAttribute("sessionID");
+								int i = 1;
+								for(Cart_VO vo:dao.CartList(id)) { %>
 								<tr>
-									<td><input type="checkbox" name="cart" checked onclick="CartCk(this)">
+									<td><input type="checkbox" name="cart" checked onclick="CartCk()" value=<%=vo.getFinprice() %> data-disvalue=<%=vo.getDisprice() %> data-value=<%=vo.getPrice() %>>
 									<td><%=vo.getTitle() %></td><td><%=vo.getName() %></td><td><%=vo.getCompose() %>강</td><td><%=df.format(vo.getPrice()) %>원</td><td><%=df.format(vo.getDisprice()) %>원</td><td><%=df.format(vo.getFinprice()) %>원</td>
 									<td><input type="button" name="del" value="삭제" class="del">
 								</tr>
-									<%} %>
+								<%} %>
 							</tbody>
 							<tfoot>
 								<tr>
-									<th><input type="checkbox" id="cart" checked onclick="CartAll(this)"></th>
-									<th colspan="5">총 결제금액</th>
-									<th>
-										
+									<th><input type="checkbox" id="cart" checked onclick="CartAll()"></th>
+									<th colspan="3">총 결제금액</th>
+									<th id="result">
+										<script>CartPr();</script>
+									</th>
+									<th id="Disresult">
+										<script>CartDisPr();</script>
+									</th>
+									<th id="Fnresult">
+										<script>CartFnPr();</script>
 									</th>
 									<th><input type="button" name="delAll" value="모두삭제" class="del"></th>
 								</tr>
@@ -237,7 +307,7 @@
 							<tbody>
 								<tr>
 									<td>
-										<input type="radio" name="payment" value="카드">신용카드
+										<input type="radio" name="payment" value="카드" checked>신용카드
 									</td>
 									<td>
 										<input type="radio" name="payment" value="계좌이체">실시간 계좌이체
@@ -253,7 +323,7 @@
 							<tfoot>
 								<tr>
 									<td colspan="4">
-										<input type="button" name="pay" value="결제하기" class="pay">
+										<input type="button" name="paybtn" value="결제하기" class="pay" onclick="pay(this)">
 									</td>
 								</tr>
 							</tfoot>

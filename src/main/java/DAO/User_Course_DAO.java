@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import VO.test_vo;
+import VO.User_Course_VO;
 
-public class test_dao {
+public class User_Course_DAO {
 	private Connection con;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -53,21 +53,26 @@ public class test_dao {
 		}
 	}
 	
-	public ArrayList<test_vo> test() {
-		ArrayList<test_vo> list = new ArrayList<test_vo>();
+	public ArrayList<User_Course_VO> User_CourseList(String user_id) {
+		ArrayList<User_Course_VO> list = new ArrayList<User_Course_VO>();
 		try {
 			setConn();
 			con.setAutoCommit(false);
-			String sql = "select * from test";
+			String sql = "select * from user_course where user_id = ?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user_id);
 			pstmt.executeQuery();
-			rs = pstmt.executeQuery(sql);
+			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				test_vo vo = new test_vo();
+				User_Course_VO vo = new User_Course_VO();
+				vo.setUser_id(rs.getString("user_id"));
+				vo.setTitle(rs.getString("title"));
 				vo.setName(rs.getString("name"));
-				vo.setSt(rs.getDate("st"));
-				vo.setFn(rs.getDate("fn"));
-				vo.setStat(rs.getString("stat"));
+				vo.setCompose(rs.getInt("compose"));
+				vo.setComposeing(rs.getInt("composeing"));
+				vo.setStart_date(rs.getDate("start_date"));
+				vo.setFinish_date(rs.getDate("finish_date"));
+				vo.setState(rs.getString("state"));
 				list.add(vo);
 			}
 			pstmt.close();
@@ -91,12 +96,6 @@ public class test_dao {
 		return list;
 	}
 	public static void main(String[] args) {
-		test_dao dao = new test_dao();
-		ArrayList<test_vo> vo = new ArrayList<test_vo>();
-		for(test_vo v:dao.test()) {
-			System.out.println(v.getName() + "\t" + v.getSt() + "\t" + v.getFn() + "\t" + v.getStat());
-			
-		}
 	
 	}
 }

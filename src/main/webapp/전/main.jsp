@@ -64,7 +64,7 @@ table td {
 				if(session.getAttribute("sessionID") != null){
 
 				%>
-				<li><a href="#">마이페이지</a></li>
+				<li><a href="/3rd_Project/이/MyPage.jsp">마이페이지</a></li>
 				<%} %>			
 			</ul>
 		</div>

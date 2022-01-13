@@ -78,6 +78,7 @@ section > div {
 	padding: 10px;
 	text-align: center;
 	border-top: 1px solid;
+	border-color: black;
 }
 .payment {
 	border-top: 1px solid;
@@ -105,4 +106,8 @@ section > div {
 	border-radius: 5px;
 	cursor: pointer;
 	color: white;
+}
+#Fnresult {
+	color: red;
+	font-size: 20px;
 }

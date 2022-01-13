@@ -61,25 +61,22 @@ section > div {
 	width: 85%;
 }
 .recodes {
-	border-top: 1px solid;
+	border-top: 2px solid;
 	border-bottom: 1px solid;
-	padding: 10px;
+	border-collapse: collapse;
 }
 .recodes > thead > tr > th {
-	padding-bottom: 5px;
+	padding: 10px;
+	border-bottom: 2px solid;
 }
 .recodes > tbody > tr > td{
-	padding-top: 5px;
+	padding: 10px;
+	border-top: 1px solid gray;
 	text-align: center;
 }
 .mycourse {
-	text-align: left;
-	line-height:0px;
+	text-align: center;
 	border-collapse: collapse;
-}
-.mycourse > tbody > tr > th > img {
-	width: 120px;
-	height: 120px;
 }
 .mycourse > tbody > tr > th > a {
 	text-decoration: none;
@@ -97,6 +94,5 @@ section > div {
 	padding: 10px;
 }
 .mycourse > tbody > tr > td {
-	font-size:20px;
 	padding: 10px;
 }

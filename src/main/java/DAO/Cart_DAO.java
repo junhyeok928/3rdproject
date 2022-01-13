@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import VO.Cart_VO;
-import VO.test_vo;
+import VO.User_Course_VO;
 
 public class Cart_DAO {
 	private Connection con;
@@ -54,22 +54,24 @@ public class Cart_DAO {
 		}
 	}
 	
-	public ArrayList<Cart_VO> CartList() {
+	public ArrayList<Cart_VO> CartList(String user_id) {
 		ArrayList<Cart_VO> list = new ArrayList<Cart_VO>();
 		try {
 			setConn();
-			String sql = "select * from cart";
+			String sql = "SELECT * FROM cart WHERE user_id = ?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user_id);
 			pstmt.executeQuery();
-			rs = pstmt.executeQuery(sql);
+			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Cart_VO vo = new Cart_VO();
 				vo.setNo(rs.getInt("no"));
+				vo.setUser_id(rs.getString("user_id"));
 				vo.setTitle(rs.getString("title"));
 				vo.setName(rs.getString("name"));
 				vo.setCompose(rs.getInt("compose"));
 				vo.setPrice(rs.getInt("price"));
-				vo.setDisprice(rs.getInt("Disprice"));
+				vo.setDisprice(rs.getInt("disprice"));
 				vo.setFinprice(rs.getInt("finprice"));
 				list.add(vo);
 			}
@@ -124,12 +126,6 @@ public class Cart_DAO {
 	}
 
 	public static void main(String[] args) {
-		test_dao dao = new test_dao();
-		ArrayList<test_vo> vo = new ArrayList<test_vo>();
-		for(test_vo v:dao.test()) {
-			System.out.println(v.getName() + "\t" + v.getSt() + "\t" + v.getFn() + "\t" + v.getStat());
-			
-		}
 	
 	}
 }

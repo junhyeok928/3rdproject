@@ -106,7 +106,7 @@ request.setCharacterEncoding("utf-8");
 						<tr style="border-bottom:1px solid #000000;">
 							<td style="text-align:center; border-right:1px solid #000000;">제목</td>
 							<td><input type="text" class="bTitle" placeholder="글 제목"
-								name="boardTitle" maxlength="20"></td>
+								name="boardTitle" maxlength="50"></td>
 						</tr>
 						<tr style="border-bottom:1px solid #000000;">
 							<td style="text-align:center; border-right:1px solid #000000;">강사선택</td>

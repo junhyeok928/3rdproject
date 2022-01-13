@@ -152,7 +152,7 @@ request.setCharacterEncoding("utf-8");
 				</tbody>
 			</table>
 			<div style="margin-top:30px;">
- 			<a href="/board.jsp" class="btn">목록</a>
+ 			<a href="board.jsp" class="btn">목록</a>
 			<%
 				if(userID!=null && userID.equals(board.getUserID())){
 			%>

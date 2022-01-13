@@ -66,7 +66,7 @@ request.setCharacterEncoding("utf-8");
                         <a href="#">커뮤니티</a>
                         <ul class="submenu">
                             <li class>
-                                <a href="./border.jsp">후기게시판</a>
+                                <a href="board.jsp">후기게시판</a>
                             </li>
                             <li class>
                                 <a href="#">자유게시판</a>

@@ -19,6 +19,10 @@
 	width: 800px;
 	min-height: 750px;
 }
+h3 {
+	font-size: 22px; 
+	font-weight:600;
+}
 
 .boardlist {
 	display: flex;
@@ -82,6 +86,27 @@
 	position: relative;
 	left: 95%;
 	top: 30%;
+}
+.btn{
+	margin-top: 10px;
+	font-size: 12px;
+	background-color: #dadada;
+	text-decoration: none;
+	color: #585858;
+	padding: 7px;
+	border-radius: 3px;
+	
+}
+.btn2{
+	margin-top: 10px;
+	font-size: 12px;
+	background-color: #dadada;
+	text-decoration: none;
+	color: #585858;
+	padding: 7px;
+	border-radius: 3px;
+	position: relative;
+	left: 84%;
 }
 .listNum {
 	display: flex;

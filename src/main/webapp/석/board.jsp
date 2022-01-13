@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="board.BoardDao" %>
-<%@ page import="board.Board" %>
+<%@ page import="DAO.BoardDao" %>
+<%@ page import="VO.Board" %>
 <%@ page import="DAO.member_DAO" %>
 <%@ page import="java.util.ArrayList" %>
 <%
@@ -149,8 +149,8 @@ request.setCharacterEncoding("utf-8");
         <div>
           <h3>후기게시판</h3>
         </div>
-        <table style="width:790px; text-align:center; ;">
-            <table class="search" >
+        <table style="width:790px; text-align:center;">
+            <table class="search">
                 <tr>
                     <td>
                         <select name="search_mode">
@@ -165,7 +165,7 @@ request.setCharacterEncoding("utf-8");
                 </tr>
             </table>  
             <table class="table_maintext" cellspacing="0" 
-                style="text-align: center; border: 1px solid #dddddd; width: 100%;">
+                style="text-align: center; border: 1px solid #dddddd;border-top: 2px solid #333333; width: 100%;">
                 <colgroup>
                     <col width="*">
                     <col width="13%">

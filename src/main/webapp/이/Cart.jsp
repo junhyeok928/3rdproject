@@ -40,7 +40,7 @@
 		var result = 0;
 		var chbox = document.getElementsByName("cart").length;
 		for(var i=0; i<chbox; i++) {
-			var price = parseInt(document.getElementsByName("cart")[i].value);
+			var price = parseInt(document.getElementsByName("cart")[i].dataset.finvalue);
 			if(document.getElementsByName("cart")[i].checked==true) {
 				result += price;
 			}
@@ -117,9 +117,33 @@
 		}
 		
 		if(ch==1) {
+			document.upt.submit();
 			alert("결제 완료되었습니다.");
+			
 		} else if(ch==0){
 			alert("결제 취소되었습니다.");
+		}
+	}
+	
+	function delck(frm) {
+		var del = confirm("선택하신 상품을 장바구니 목록에서 삭제하시겠습니까?");
+		if(del==1) {
+			frm.action = "Cartdel.jsp";
+			document.upt.submit();
+			alert("삭제가 완료되었습니다.");
+		} else if(del==0) {
+			alert("삭제가 취소되었습니다.");
+		}
+	}
+	
+	function delAllck(frm) {
+		var del = confirm("장바구니 목록을 전부 삭제하시겠습니까?");
+		if(del==1) {
+			frm.action = "Cartdelall.jsp";
+			document.upt.submit();
+			alert("삭제가 완료되었습니다.");
+		} else if(del==0) {
+			alert("삭제가 취소되었습니다.");
 		}
 	}
 </script>
@@ -147,7 +171,6 @@
 				<li><a href="#">회원가입</a></li>
 				<% 
 				if(session.getAttribute("sessionID") != null){
-
 				%>
 				<li><a href="/3rd_Project/이/MyPage.jsp">마이페이지</a></li>
 				<%} %>			
@@ -168,7 +191,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class>
                         <a href="#">강사소개</a>
                     </li>
@@ -261,9 +283,9 @@
 				</div>
 				<div class="coursebox">
 					<span class="title">주문내역</span>
-					<form>
+					<form method="post" action="CourseIns.jsp" name="upt">
 						<table class="cart">
-						<col width="5%"><col width="15%"><col width="15%"><col width="15%"><col width="15%"><col width="15%"><col width="15%"><col width="5%">
+						<col width="5%"><col width="20%"><col width="15%"><col width="10%"><col width="15%"><col width="15%"><col width="15%"><col width="5%">
 							<thead>
 								<tr>
 									<th></th><th>상품명</th><th>강사명</th><th>구성</th><th>수강금액</th><th>할인금액</th><th>결제금액</th><th></th>
@@ -276,9 +298,12 @@
 								int i = 1;
 								for(Cart_VO vo:dao.CartList(id)) { %>
 								<tr>
-									<td><input type="checkbox" name="cart" checked onclick="CartCk()" value=<%=vo.getFinprice() %> data-disvalue=<%=vo.getDisprice() %> data-value=<%=vo.getPrice() %>>
+									<td><input type="checkbox" name="cart" checked onclick="CartCk()" value=<%=vo.getNo() %> data-disvalue=<%=vo.getDisprice() %> data-value=<%=vo.getPrice() %> data-finvalue=<%=vo.getFinprice() %>></td>
 									<td><%=vo.getTitle() %></td><td><%=vo.getName() %></td><td><%=vo.getCompose() %>강</td><td><%=df.format(vo.getPrice()) %>원</td><td><%=df.format(vo.getDisprice()) %>원</td><td><%=df.format(vo.getFinprice()) %>원</td>
-									<td><input type="button" name="del" value="삭제" class="del">
+									<td>
+										<input type="hidden" name="del" value=<%=vo.getNo() %>>
+										<input type="button" class="del" value="삭제" name="delbtn" onclick="delck(this.form)">
+									</td>
 								</tr>
 								<%} %>
 							</tbody>
@@ -295,13 +320,12 @@
 									<th id="Fnresult">
 										<script>CartFnPr();</script>
 									</th>
-									<th><input type="button" name="delAll" value="모두삭제" class="del"></th>
+									<th><input type="button" name="delAllbtn" value="모두삭제" class="del" onclick="delAllck(this.form)"></th>
 								</tr>
 							</tfoot>
 						</table>
-					</form>
-					<span class="title2">결제수단</span>
-					<form>
+						
+						<span class="title2">결제수단</span>
 						<table class="payment">
 						<col width="25%"><col width="25%"><col width="25%"><col width="25%">
 							<tbody>
@@ -323,7 +347,8 @@
 							<tfoot>
 								<tr>
 									<td colspan="4">
-										<input type="button" name="paybtn" value="결제하기" class="pay" onclick="pay(this)">
+										<input type="hidden" name="id" value=<%=session.getAttribute("sessionID") %>>
+										<input type="button" name="paybtn" value="결제하기" class="pay" onclick="pay()">
 									</td>
 								</tr>
 							</tfoot>

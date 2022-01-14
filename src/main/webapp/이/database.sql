@@ -19,11 +19,7 @@ INSERT INTO cart values(cartNo.nextval, 'himan', '정보처리기사 필기', '�
 INSERT INTO cart values(cartNo.nextval, 'himan', '정보처리기사 실기', '유진선', 57, 120000, 21000, 99000);
 INSERT INTO cart values(cartNo.nextval, 'himan2', '정보처리기사 실기', '유진선', 57, 120000, 21000, 99000);
 
-SELECT * FROM cart WHERE user_id='himan';
-
 SELECT * FROM cart;
-
-DELETE FROM cart WHERE NO=2;
 
 CREATE TABLE users(
     user_no number PRIMARY KEY,
@@ -48,8 +44,7 @@ CREATE TABLE user_course(
 	state varchar(10)
 );
 
-INSERT INTO user_course VALUES ('himan', '정보처리기사 필기', '전준혁', 95, 2, sysdate, sysdate+90, '수강중');
-INSERT INTO user_course VALUES ('himan', '정보처리기사 실기', '유진선', 57, 4, sysdate, sysdate+120, '수강중');
-INSERT INTO user_course VALUES ('himan2', '정보처리기사 필기', '전준혁', 95, 10, sysdate, sysdate+90, '수강중');
+
+DELETE FROM user_course;
 
 SELECT * FROM user_course;

@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -95,6 +96,43 @@ public class User_Course_DAO {
 		}
 		return list;
 	}
+	
+	
+	public void User_CourseListIns(String user_id, String title, String name, int compose, int composeing, Date start_date, Date finish_date, String state) {
+		try {
+			setConn();
+			con.setAutoCommit(false);
+			String sql = "INSERT INTO user_course VALUES (?,?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, title);
+			pstmt.setString(3, name);
+			pstmt.setInt(4, compose);
+			pstmt.setInt(5, composeing);
+			pstmt.setDate(6, start_date);
+			pstmt.setDate(7, finish_date);
+			pstmt.setString(8, state);
+			pstmt.executeUpdate();
+			pstmt.close();
+			con.close();
+					
+		}catch(SQLException e) {
+			System.out.println("DB관련 예외:" + e.getMessage());
+			closeRsc();
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO: handle exception
+				e1.printStackTrace();
+			}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("일반 예외:" + e.getMessage());
+			
+		}
+	}
+
 	public static void main(String[] args) {
 	
 	}

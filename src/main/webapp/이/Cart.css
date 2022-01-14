@@ -4,7 +4,7 @@ section {
 	left: 25%;
 	top: 25%;
 	width: 80%;
-	height: 60%;
+	height: 110%;
 }
 section > div {
 	display: flex;
@@ -58,7 +58,7 @@ section > div {
 	display: flex;
 	flex-direction: column;
 	margin-left: 20px;
-	width: 85%;
+	width: 75%;
 }
 .cart {
 	border-top: 2px solid;

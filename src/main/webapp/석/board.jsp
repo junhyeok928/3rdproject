@@ -28,11 +28,6 @@ request.setCharacterEncoding("utf-8");
   </head>
 
   <body>
-	  	<%--
-	  	String userID = null;
-		if (session.getAttribute("sessionID") != null) {
-			userID = (String) session.getAttribute("sessionID");
-		}--%>
 		<%
 		int pageNumber = 1;
   		if (request.getParameter("pageNumber") != null){
@@ -134,8 +129,12 @@ request.setCharacterEncoding("utf-8");
         </ul>
       </div>
     </nav>
-    <div class="float1">베너</div>
-    <div class="float2">베너</div>
+    <div>
+		<img class="float1" src="./img/banner1.png" alt="오류">
+	</div>
+    <div>
+		<img class="float2" src="./img/banner2.png" alt="오류">
+	</div>
     <div class="container">
       <div class="leftmenu">
         <h2>커뮤니티</h2>

@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+div.first_sc{
+	margin: 40px;
+	display: flex;
+	justify-content: center;
+	border-bottom: 2px solid #808080;
+	padding-bottom: 50px;
+}
+div.top{
+	padding-right:50px;	
+}
+div.top > td >a:hover{
+	text-decoration: underline;
+    text-underline-position: under;
+}
+div.top > td >a{
+    text-align: left;
+    text-decoration: none;
+    line-height: 30px;
+    display: block;
+    white-space: nowrap;
+    color: black;
+}
+div.top3{
+	padding-left:50px;	
+	text-align:right;
+		
+}
+table td a{
+	text-align: left;
+    text-decoration: none;
+    line-height: 30px;
+    display: block;
+    white-space: nowrap;
+    color: black;
+}
+table td {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #444444;
+}
+li.tab_1 {
+    font-weight: 600;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    padding: 10px 25px 12px;
+    border-bottom: 1px solid #fff;
+}
+li.tab_2{
+   display: inline-block;
+   text-align: center;
+   padding: 10px 25px 12px;
+   color: #303030;
+   border-top: 1px solid #fff;
+   border-right: 1px solid #fff;
+   border-bottom: 1px solid #000;
+}
+.wrap li a{
+	text-decoration: underline;
+    text-underline-position: under;
+}
+.wrap li a{
+    text-align: left;
+    text-decoration: none;
+    line-height: 30px;
+    display: block;
+    white-space: nowrap;
+    color: black;
+}
+
+div.wrap {
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+}
+.tb_list{
+	display: block;
+	text-align: left;
+}

@@ -58,7 +58,7 @@ public class Cart_DAO {
 		ArrayList<Cart_VO> list = new ArrayList<Cart_VO>();
 		try {
 			setConn();
-			String sql = "SELECT * FROM cart WHERE user_id = ?";
+			String sql = "SELECT * FROM course_cart WHERE user_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, user_id);
 			pstmt.executeQuery();
@@ -99,7 +99,7 @@ public class Cart_DAO {
 		ArrayList<Cart_VO> list = new ArrayList<Cart_VO>();
 		try {
 			setConn();
-			String sql = "SELECT * FROM cart WHERE user_id = ? and no = ?";
+			String sql = "SELECT * FROM course_cart WHERE user_id = ? and no = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, user_id);
 			pstmt.setInt(2, no);
@@ -141,7 +141,7 @@ public class Cart_DAO {
 		try {
 			setConn();
 			con.setAutoCommit(false);
-			String sql = "DELETE FROM cart WHERE user_id=? and no=?";
+			String sql = "DELETE FROM course_cart WHERE user_id=? and no=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, user_id);
 			pstmt.setInt(2, no);
@@ -170,7 +170,7 @@ public class Cart_DAO {
 		try {
 			setConn();
 			con.setAutoCommit(false);
-			String sql = "DELETE FROM cart WHERE user_id=?";
+			String sql = "DELETE FROM course_cart WHERE user_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, user_id);
 			pstmt.executeUpdate();

@@ -1,4 +1,4 @@
-CREATE TABLE cart (
+CREATE TABLE course_cart (
 	NO NUMBER PRIMARY KEY,
 	user_id varchar2(20),
 	title varchar2(30),
@@ -15,11 +15,11 @@ CREATE SEQUENCE cartNo
 	MAXVALUE 999
 	CYCLE;
 
-INSERT INTO cart values(cartNo.nextval, 'himan', '정보처리기사 필기', '전준혁', 95, 99000, 33900, 66000);
-INSERT INTO cart values(cartNo.nextval, 'himan', '정보처리기사 실기', '유진선', 57, 120000, 21000, 99000);
-INSERT INTO cart values(cartNo.nextval, 'himan2', '정보처리기사 실기', '유진선', 57, 120000, 21000, 99000);
+INSERT INTO course_cart values(cartNo.nextval, 'himan', '정보처리기사 필기', '전준혁', 95, 99000, 33900, 66000);
+INSERT INTO course_cart values(cartNo.nextval, 'himan', '정보처리기사 실기', '유진선', 57, 120000, 21000, 99000);
+INSERT INTO course_cart values(cartNo.nextval, 'himan2', '정보처리기사 실기', '유진선', 57, 120000, 21000, 99000);
 
-SELECT * FROM cart;
+SELECT * FROM course_cart;
 
 CREATE TABLE users(
     user_no number PRIMARY KEY,
@@ -44,6 +44,8 @@ CREATE TABLE user_course(
 	state varchar(10)
 );
 
+INSERT INTO user_course VALUES ('himan', '정보처리기사 필기', '전준혁', 95, 2, sysdate, sysdate+90, '수강중');
+INSERT INTO user_course VALUES ('himan', '정보처리기사 실기', '유진선', 57, 4, sysdate, sysdate+120, '수강중');
 
 DELETE FROM user_course;
 

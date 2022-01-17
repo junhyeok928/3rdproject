@@ -52,7 +52,7 @@ td{
 	<nav>
 		<div class="menubox">
 			<ul class="menu">
-				<li class="parent"><a href="#">수강신청</a>
+				<li class="parent"><a href="course1.jsp">수강신청</a>
 					<ul class="submenu">
 						<li class="parent"><a href="#">정보처리산업기사</a></li>
 						<li class="parent"><a href="#">정보처리기사</a></li>

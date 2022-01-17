@@ -11,7 +11,7 @@
 <link rel="shortcut icon" href="../img/favicon.ico" />
 <link rel="stylesheet" href="../css/font.css" />
 <link rel="stylesheet" href="../css/template.css" />
-<link rel="stylesheet" href="../css/course.css" />
+<link rel="stylesheet" href="../css/course.css?ver=1.1" />
 
 <style>
 table{

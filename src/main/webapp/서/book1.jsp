@@ -6,7 +6,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>수강신청</title>
+<title>교재신청</title>
 <!-- 수강신청 - 정보처리기사 -->
 <link rel="shortcut icon" href="./img/favicon.ico" />
 <link rel="stylesheet" href="./css/font.css" />

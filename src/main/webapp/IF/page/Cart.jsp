@@ -195,7 +195,7 @@ request.setCharacterEncoding("utf-8");
 					</ul></li>
 
 				<li class><a href="#">강사소개</a></li>
-				<li class><a href="#">교재신청</a></li>
+				<li class><a href="../page/book1.jsp">교재신청</a></li>
 				<li class="parent"><a href="../page/daily.jsp">Daily문제</a>
 					<ul class="submenu">
 						<li class="parent"><a href="../page/daily3.jsp">정보처리산업기사</a></li>
@@ -220,10 +220,10 @@ request.setCharacterEncoding("utf-8");
 	</nav>
 	<div class="test"></div>
 	<div>
-		<img class="float1" src="./img/banner1.png" alt="오류">
+		<img class="float1" src="../img/banner1.png" alt="오류">
 	</div>
 	<div>
-		<img class="float2" src="./img/banner2.png" alt="오류">
+		<img class="float2" src="../img/banner2.png" alt="오류">
 	</div>
 	<section>
 		<div>

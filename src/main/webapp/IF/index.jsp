@@ -12,10 +12,10 @@ request.setCharacterEncoding("utf-8");
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>IF</title>
-<link rel="shortcut icon" href="./img/favicon.ico">
-<link rel="stylesheet" href="./css/font.css">
-<link rel="stylesheet" href="./css/template.css">
-<link rel="stylesheet" href="./css/main.css?ver=1.8">
+<link rel="shortcut icon" href="../IF/img/favicon.ico">
+<link rel="stylesheet" href="../IF/css/font.css">
+<link rel="stylesheet" href="../IF/css/template.css">
+<link rel="stylesheet" href="../IF/css/main.css">
 <style>
 
 </style>
@@ -33,7 +33,7 @@ request.setCharacterEncoding("utf-8");
 <body>
 	<header>
 		<div class="logo">
-			<a href="#" style="text-decoration: none"><img
+			<a href="../IF/index.jsp" style="text-decoration: none"><img
 				class="logoimg" src="./img/logo.png" alt="" height="100px" /> </a>
 		</div>
 		<div class="headerbox">
@@ -43,20 +43,20 @@ request.setCharacterEncoding("utf-8");
 
 				if (session.getAttribute("sessionID") != null) {
 				%><li><a href="#"><%=session.getAttribute("sessionID")%>님</a></li>
-				<li><a href="./logoutpro.jsp" onclick="logout()">로그아웃</a></li>
+				<li><a href="../IF/process/logoutpro.jsp" onclick="logout()">로그아웃</a></li>
 				<%
 				} else {
 				%>
-				<li><a href="./loginform.jsp">로그인</a></li>
+				<li><a href="../IF/page/loginform.jsp">로그인</a></li>
 				<%
 				}
 				%>
-				<li><a href="#">회원가입</a></li>
+				<li><a href="../IF/page/joinform.jsp">회원가입</a></li>
 				<% 
 				if(session.getAttribute("sessionID") != null){
 
 				%>
-				<li><a href="#">마이페이지</a></li>
+				<li><a href="../IF/page/MyPage.jsp">마이페이지</a></li>
 				<%} %>	
 			</ul>
 		</div>
@@ -64,22 +64,22 @@ request.setCharacterEncoding("utf-8");
 	<nav>
 		<div class="menubox">
 			<ul class="menu">
-				<li class="parent"><a href="#">수강신청</a>
+				<li class="parent"><a href="../IF/page/course1.jsp">수강신청</a>
 					<ul class="submenu">
-						<li class="parent"><a href="#">정보처리산업기사</a></li>
-						<li class="parent"><a href="#">정보처리기사</a></li>
+						<li class="parent"><a href="../IF/page/course2.jsp">정보처리산업기사</a></li>
+						<li class="parent"><a href="../IF/page/course1.jsp">정보처리기사</a></li>
 					</ul></li>
 
 				<li class><a href="#">강사소개</a></li>
 				<li class><a href="#">교재신청</a></li>
-				<li class="parent"><a href="daily.jsp">Daily문제</a>
+				<li class="parent"><a href="../IF/page/daily.jsp">Daily문제</a>
 					<ul class="submenu">
-						<li class="parent"><a href="daily3.jsp">정보처리산업기사</a></li>
-						<li class="parent"><a href="daily1.jsp">정보처리기사</a></li>
+						<li class="parent"><a href="../IF/page/daily3.jsp">정보처리산업기사</a></li>
+						<li class="parent"><a href="../IF/page/daily1.jsp">정보처리기사</a></li>
 					</ul></li>
 				<li class="parent"><a href="#">커뮤니티</a>
 					<ul class="submenu">
-						<li class><a href="#">후기게시판</a></li>
+						<li class><a href="../IF/page/board.jsp">후기게시판</a></li>
 						<li class><a href="#">자유게시판</a></li>
 						<li class><a href="#">질문게시판</a></li>
 					</ul></li>
@@ -95,10 +95,10 @@ request.setCharacterEncoding("utf-8");
 		</div>
 	</nav>
 	<div>
-		<img class="float1" src="./img/banner1.png" alt="오류">
+		<img class="float1" src="../IF/img/banner1.png" alt="오류">
 	</div>
 	<div>
-		<img class="float2" src="./img/banner2.png" alt="오류">
+		<img class="float2" src="../IF/img/banner2.png" alt="오류">
 	</div>
 
 	<div class="first_sc">

@@ -1,0 +1,105 @@
+.daily {
+	display: block;
+	position: absolute;
+	width: 60%;
+	height: 60%;
+	top: 25%;
+	left: 25%;
+	border-right: 1px solid;
+	width: 15%;
+}
+
+.daily .d_font {
+	font-size: 18px;
+}
+
+.daily a:link {
+	line-height: 30px;
+	display: block;
+	white-space: nowrap;
+	color: black;
+	text-decoration: none;
+}
+
+.daily a:visited {
+	text-decoration: none;
+}
+
+.daily a:hover, a:focus {
+	text-underline-position: under;
+	text-decoration: underline;
+}
+
+.daily ul {
+	display: flex;
+	list-style: none;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	flex-direction: column;
+}
+
+.menu2 {
+	float: left ;
+	width: 600px;
+	height: 50px;
+	font-weight: bold;
+}
+
+.menu2 li {
+	float: left;
+	width: 150px;
+	text-align: left;
+	line-height: 40px;
+}
+
+.menu2 a {
+	text-decoration: none;
+	display: block;
+	color: black;
+}
+
+.menu2 a:hover {
+	display: block;
+	text-underline-position: under;
+	text-decoration: underline;
+}
+
+.menu2 li .submenu2 {
+	width: 150px;
+	height: 40px;
+	display: none;
+}
+
+.menu2 li:hover .submenu2 {
+	display: block;
+}
+
+.menu2>li>a:focus+.submenu2 {
+	display: block;
+}
+
+.content {
+	width: 40%;
+	height: 60%;
+	top: 25%;
+	left: 45%;
+	position: absolute;
+	display: block;
+}
+#content1 table td{
+	font-size:20px;
+	padding-bottom:10px;
+}
+#content2 table td{
+	font-size:20px;
+	padding-bottom:10px;
+}
+#content3 table td{
+	font-size:20px;
+	padding-bottom:10px;
+}
+#content4 table td{
+	font-size:20px;
+	padding-bottom:10px;
+}

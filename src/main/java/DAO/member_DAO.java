@@ -90,7 +90,7 @@ public class member_DAO {
 		try {
 			setConn();
 			con.setAutoCommit(false);
-			String sql = "select * from Users where user_id = ? and user_pw = ?";
+			String sql = "select * from Users where user_id = ? and user_password = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pw);

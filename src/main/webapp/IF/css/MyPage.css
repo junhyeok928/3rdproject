@@ -1,0 +1,98 @@
+section {
+	display: flex;
+	position: absolute;
+	left: 25%;
+	top: 25%;
+	width: 80%;
+	height: 110%;
+}
+section > div {
+	display: flex;
+	width: 80%;
+}
+.mymenubox1 {
+	border-right: 1px solid;
+	width: 15%;
+}
+.mymenubox {
+	display: flex;
+	flex-direction: column;
+	padding-right: 20px;	    
+}
+.mymenu {
+	flex-direction: column;
+	font-size: 15px;
+}
+.mymenu li > a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+#now {
+	font-weight: bold;
+}
+.mymenu > li > a {
+	float: left;
+	text-decoration: none;
+	color: black;
+	margin-bottom:15px;
+}
+.mymenubox > span {
+	font-size: 30px;
+	padding-bottom: 30px;
+}
+.division {
+	border-bottom: 1px solid;
+	margin-bottom:15px;
+}
+.title {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.title2 {
+	font-size: 20px;
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+.coursebox {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20px;
+	width: 85%;
+}
+.recodes {
+	border-top: 2px solid;
+	border-bottom: 1px solid;
+	border-collapse: collapse;
+}
+.recodes > thead > tr > th {
+	padding: 10px;
+	border-bottom: 2px solid;
+}
+.recodes > tbody > tr > td{
+	padding: 10px;
+	border-top: 1px solid gray;
+	text-align: center;
+}
+.mycourse {
+	text-align: center;
+	border-collapse: collapse;
+}
+.mycourse > tbody > tr > th > a {
+	text-decoration: none;
+	color: black;
+	font-weight: normal;
+	font-size: 20px;
+}
+.mycourse > tbody > tr > th > a:hover {
+	font-weight: bold;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+.mycourse > tbody > tr > th {
+	border-top: 1px solid;
+	padding: 10px;
+}
+.mycourse > tbody > tr > td {
+	padding: 10px;
+}

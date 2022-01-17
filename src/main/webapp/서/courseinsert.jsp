@@ -25,8 +25,8 @@
 		
 	user_id = request.getParameter("id");
 	
-	dao.course_cart("정처기 필기", "전준혁", "95강", "99000원" , user_id);	
-	
+	dao.course_cart(user_id, "2022 정보처리기사 필기", "전준혁", 95, 99000, 33900, 66000);	
+
 	response.sendRedirect("course1.jsp"); // 해당 페이지로 이동
 
 	%>

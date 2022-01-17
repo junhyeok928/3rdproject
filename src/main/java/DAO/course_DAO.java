@@ -52,18 +52,55 @@ public class course_DAO {
 		}
 	}
 	
-	public void course_cart(String course_name, String teacher_name, String course_composition, String course_price, String user_id) {
+	public void course_cart(String user_id, String title, String name, int compose, int price, int disprice, int finprice) {
 		try {
 			setConn();
-			String sql = "INSERT INTO course_cart values(?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO course_cart values(course_cart_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
+			
 			pstmt = con.prepareStatement(sql);
 
-			pstmt.setString(1, course_name);
-			pstmt.setString(2, teacher_name);
-			pstmt.setString(3, course_composition);
-			pstmt.setString(4, course_price);
-			pstmt.setString(5, user_id);
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, title);
+			pstmt.setString(3, name);
+			pstmt.setDouble(4, compose);
+			pstmt.setDouble(5, price);
+			pstmt.setDouble(6, disprice);
+			pstmt.setDouble(7, finprice);
+	
+			pstmt.executeUpdate();
+			pstmt.close();
+			con.close();
+		} catch (SQLException e) {
+			System.out.println("DB예외:" + e.getMessage());
+			closeRsc();
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO: handle exception
+				e1.printStackTrace();
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("일반예외:" + e.getMessage());
+
+		}
+	}
+	
+	public void course_cart2(String user_id, String title, String name, int compose, int price, int disprice, int finprice) {
+		try {
+			setConn();
+			String sql = "INSERT INTO course_cart values(course_cart_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
 			
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, title);
+			pstmt.setString(3, name);
+			pstmt.setDouble(4, compose);
+			pstmt.setDouble(5, price);
+			pstmt.setDouble(6, disprice);
+			pstmt.setDouble(7, finprice);
+	
 			pstmt.executeUpdate();
 			pstmt.close();
 			con.close();

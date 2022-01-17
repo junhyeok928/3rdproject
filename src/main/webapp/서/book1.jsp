@@ -12,6 +12,15 @@
 <link rel="stylesheet" href="./css/font.css" />
 <link rel="stylesheet" href="./css/template.css" />
 <link rel="stylesheet" href="./css/book.css" />
+
+<style>
+table{
+	border-style: ;
+}
+td{
+	border-style: inset;
+}
+</style>
 </head>
 
 <body>
@@ -74,16 +83,13 @@
 		</div>
 	</nav>
 
-	<div class="left" style="width: 40%">
+	<div class="left">
 		<font size="10" style="padding: 0px 30px 0px 0px;"> <br>
 			&nbsp;교재신청
 		</font>
 		<div style="padding: 0px 30px 0px 0px;">
 			<br> <br> <br> <a href=""
 				style="text-decoration: none; color: black;"> &nbsp;정보처리기사 </a> <br>
-			<br> 로그인 되어있는 아이디(테스트 진행중):
-			<%=session.getAttribute("sessionID") %>
-
 		</div>
 	</div>
 
@@ -96,19 +102,18 @@
 				</div>
 			</font>
 
-			<table border="10" align="" style="margin: 30px 30px 30px 30px"
+			<table border="0" align="" style="margin: 30px 30px 30px 30px"
 				width="800">
 				<tr>
 					<td rowspan="4" style="line-height: 0" width="100px"><img
 						src="./img/information1.png"></td>
-					<td>교재명: 2022 정보처리기사 필기</td>
-					<td colspan="2"></td>
+					<td colspan="3">교재명: 2022 정보처리기사 필기</td>
 				</tr>
 				<hr style="margin: 30px 30px 30px 30px" border: "1px
-					solid" color="red" width="800">
+					solid" color="black" width="800">
 				<tr>
-					<td>해당 강의 강사: 이지수</td>
-					<td colspan="2"></td>
+					<td colspan="3">해당 강의 강사: 전준혁</td>
+
 				</tr>
 
 				<tr>
@@ -165,7 +170,7 @@
 				</tr>
 			</table>
 			<hr style="margin: 30px 30px 30px 30px" border: "1px
-				solid" color="red" width="800">
+				solid" color="black" width="800">
 		</div>
 	</div>
 

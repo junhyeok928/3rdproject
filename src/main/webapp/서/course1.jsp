@@ -12,12 +12,21 @@
 <link rel="stylesheet" href="./css/font.css" />
 <link rel="stylesheet" href="./css/template.css" />
 <link rel="stylesheet" href="./css/course.css" />
+
+<style>
+table{
+	border-style: ;
+}
+td{
+	border-style: inset;
+}
+</style>
 </head>
 <body>
 	<header>
 		<div class="logo">
-			<a href="#" style="text-decoration: none"><img
-				class="logoimg" src="./img/logo.png" alt="" height="100px" /> </a>
+			<a href="#" style="text-decoration: none"><img class="logoimg"
+				src="./img/logo.png" alt="" height="100px" /> </a>
 		</div>
 		<div class="headerbox">
 			<ul class="menu">
@@ -38,14 +47,14 @@
 			</ul>
 		</div>
 	</header>
-	
+
 	<nav>
 		<div class="menubox">
 			<ul class="menu">
-				<li class="parent"><a href="#">수강신청</a>
+				<li class="parent"><a href="course1.jsp">수강신청</a>
 					<ul class="submenu">
-						<li class="parent"><a href="#">정보처리산업기사</a></li>
-						<li class="parent"><a href="#">정보처리기사</a></li>
+						<li class="parent"><a href="course2.jsp">정보처리산업기사</a></li>
+						<li class="parent"><a href="course1.jsp">정보처리기사</a></li>
 					</ul></li>
 
 				<li class><a href="#">강사소개</a></li>
@@ -72,50 +81,45 @@
 			</ul>
 		</div>
 	</nav>
-	
-	<div class="left" style="width: 40%">
+
+	<div class="left">
 		<font size="10" style="padding: 0px 30px 0px 0px;"> <br>
 			&nbsp;수강신청
 		</font>
 		<div style="padding: 0px 30px 0px 0px;">
-			<br>
-			<br> <br> <a href="course1.jsp"
+			<br> <br> <br> <a href="course1.jsp"
 				style="text-decoration: none; color: black;"> &nbsp;정보처리기사 </a> <br>
 			<br> <a href="course2.jsp"
 				style="text-decoration: none; color: black;"> &nbsp;정보처리산업기사 </a> <br>
-			<br> 로그인 되어있는 아이디(테스트 진행중):
-			<%=session.getAttribute("sessionID") %>
+
 		</div>
 	</div>
 
 	<div class="right">
 		<!-- 정보처리기사 필기 수강 -->
 		<div style="height: 100%; width: 100%; border-left: 1px solid black;">
-			<font size="5"> <br>
-			<br>
+			<font size="5"> <br> <br>
 				<div style="padding: 0px 0px 0px 30px;">
-					정보처리산업기사 <br>
-					<br> <img src="./img/course_logo.PNG"> <br>
+					정보처리기사 <br> <br> <img src="./img/course_logo.PNG">
+					<br>
 				</div>
 			</font>
-
-			<table border="10" align="" style="margin: 30px 30px 30px 30px"
-				width="800">
+			
+			<table border="0" align="" style="margin: 30px 30px 30px 30px" width="800">
 				<tr>
 					<!-- 첫번째 줄 시작 -->
 					<td rowspan="4" style="line-height: 0" width="100px"><img
 						src="./img/information1.png"></td>
-					<td>강의명: 2022 정보처리기사 필기</td>
-					<td colspan="2"></td>
+					<td colspan="3">강의명: 2022 정보처리기사 필기</td>
+				
 				</tr>
 
 				<hr style="margin: 30px 30px 30px 30px" border: "1px
-					solid" color="red" width="800">
+					solid" color="black" width="800">
 
 				<tr>
 					<!-- 두번째 줄 시작 -->
-					<td>강사: 전준혁</td>
-					<td colspan="2"></td>
+					<td colspan="3">강사: 전준혁</td>
 				</tr>
 
 				<tr>
@@ -127,7 +131,7 @@
 				<tr>
 					<!-- 네번째 줄 시작 -->
 					<td>교재: 000 정보처리기사 필기</td>
-					<td>
+					<td> 
 						<%
 					if(session.getAttribute("sessionID")!=null){
 				%>
@@ -167,28 +171,28 @@
 								onclick="call()";>장바구니</button>
 						</form>
 					</td>
-					
+
 					<td><button class="button"
 							onclick="location.href='shopping_cart.jsp'">바로구매</button></td>
 				</tr>
 			</table>
-			
+
 			<hr style="margin: 30px 30px 30px 30px" border: "1px
-				solid" color="red" width="800">
+				solid" color="black" width="800">
 			<br>
-			<table border="10" align="" style="margin: 30px 30px 30px 30px"
+			<table border="0" style="margin: 30px 30px 30px 30px"
 				width="800">
 				<tr>
 					<td rowspan="4" style="line-height: 0" width="100px"><img
 						src="./img/information2.png"></td>
-					<td>강의명: 2022 정보처리기사 실기</td>
-					<td colspan="2"></td>
+					<td colspan="3">강의명: 2022 정보처리기사 실기</td>
+
 				</tr>
 				<hr style="margin: 30px 30px 30px 30px" border: "1px
-					solid" color="blue" width="800">
+					solid" color="black" width="800">
 				<tr>
-					<td>강사: 전준혁</td>
-					<td colspan="2"></td>
+					<td colspan="3">강사: 전준혁</td>
+					
 				</tr>
 				<tr>
 					<td>구성: 30강 / 평균30분 수강일수: 90일,</td>
@@ -196,13 +200,49 @@
 				</tr>
 				<tr>
 					<td>교재: 000 정보처리기사 실기</td>
-					<td><button class="button">장바구니</button></td>
+					<td>
+						<%
+						if(session.getAttribute("sessionID")!=null){
+						%>
+						<form method="post" action="courseinsert2.jsp">
+
+							<%
+						}	
+							%>
+							<%
+							if(session.getAttribute("sessionID")!=null){
+							%>
+							<script>
+							function call(){
+								alert("장바구니 완료");
+							}
+							</script>
+							<%
+							} else{
+							%>
+
+							<script>
+							function call(){
+								alert("로그인을 먼저 시도해주세요");
+							}
+							
+							</script>
+							<%
+							}
+							%>
+							<input type="hidden" name="id2"
+								value=<%=session.getAttribute("sessionID")%>>
+							<button class="button" type="submit" id="button2"
+								onclick="call()";>장바구니</button>
+						</form>
+					</td>
+
 					<td><button class="button"
 							onclick="location.href='shopping_cart.jsp'">바로구매</button></td>
 				</tr>
 			</table>
 			<hr style="margin: 30px 30px 30px 30px" border: "1px
-				solid" color="blue" width="800">
+				solid" color="black" width="800">
 		</div>
 	</div>
 

@@ -173,18 +173,18 @@ request.setCharacterEncoding("utf-8");
             </div>
             <div class="item">
                 <ol>
-                <%for(int i = 0; i < pageNumber; i++){
-                	if(boardDao.nextPage(pageNumber)){
+                <% int j = 1;
+                for(int i = 0; i < j; i++){
+                	if(boardDao.nextPage(j)){
                 %>
                     <li>
-                        <a href="board.jsp?pageNumber=<%=pageNumber%>"><%=i+1 %></a>
+                        <a href="board.jsp?pageNumber=<%=i+1%>"><%=i+1 %></a>
                     </li>
                 <%
-               			pageNumber++;
-                	}
-                }
+               			j++;
+                	};
+                };
                 %>
-                <!-- 더 생각해보기 -->
                 </ol>
             </div>
             <div class="item">

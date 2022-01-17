@@ -12,6 +12,15 @@
 <link rel="stylesheet" href="./css/font.css" />
 <link rel="stylesheet" href="./css/template.css" />
 <link rel="stylesheet" href="./css/course.css" />
+
+<style>
+table{
+	border-style: ;
+}
+td{
+	border-style: inset;
+}
+</style>
 </head>
 
 <body>
@@ -74,7 +83,7 @@
 		</div>
 	</nav>
 
-	<div class="left" style="width: 40%">
+	<div class="left">
 		<font size="10" style="padding: 0px 30px 0px 0px;"> <br>
 			&nbsp;수강신청
 		</font>
@@ -83,8 +92,6 @@
 				style="text-decoration: none; color: black;"> &nbsp;정보처리기사 </a> <br>
 			<br> <a href="course2.jsp"
 				style="text-decoration: none; color: black;"> &nbsp;정보처리산업기사 </a> <br>
-			<br> 로그인 되어있는 아이디(테스트 진행중):
-			<%=session.getAttribute("sessionID") %>
 		</div>
 	</div>
 
@@ -92,25 +99,23 @@
 		<div style="height: 100%; width: 100%; border-left: 1px solid black;">
 			<font size="5"> <br> <br>
 				<div style="padding: 0px 0px 0px 30px;">
-					정보처리기사 <br> <br> <img src="./img/course_logo.PNG">
+					정보처리산업기사 <br> <br> <img src="./img/course_logo.PNG">
 					<br>
 				</div>
 			</font>
 			
-			<table border="10" align="" style="margin: 30px 30px 30px 30px"
+			<table border="0" align="" style="margin: 30px 30px 30px 30px"
 				width="800">
 				<tr>
 					<!-- 첫번째 줄 시작 -->
 					<td rowspan="4" style="line-height: 0" width="100px"><img
 						src="./img/information3.png"></td>
-					<td>강의명: 2022 정보처리기사 필기</td>
-					<td colspan="2"></td>
+					<td colspan="3">강의명: 2022 정보처리산업기사 필기</td>
 				</tr>
 				<hr style="margin: 30px 30px 30px 30px" border: "1px
-					solid" color="red" width="800">
+					solid" color="black" width="800">
 				<tr>
-					<td>강사: 이지수</td>
-					<td colspan="2"></td>
+					<td colspan="3">강사: 이지수</td>
 				</tr>
 				<tr>
 					<td>구성: 37강 / 평균30분 수강일수: 90일,</td>
@@ -123,7 +128,7 @@
 					if(session.getAttribute("sessionID")!=null){
 				%>
 
-						<form method="post" action="courseinsert.jsp">
+						<form method="post" action="courseinsert3.jsp">
 
 							<%
 					}
@@ -163,7 +168,7 @@
 				</tr>
 			</table>
 			<hr style="margin: 30px 30px 30px 30px" border: "1px
-				solid" color="red" width="800">
+				solid" color="black" width="800">
 		</div>
 	</div>
 

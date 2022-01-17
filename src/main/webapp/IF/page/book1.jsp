@@ -102,7 +102,7 @@ td{
 		<div style="height: 100%; width: 100%; border-left: 1px solid black;">
 			<font size="5"> <br> <br>
 				<div style="padding: 0px 0px 0px 30px;">
-					정보처리기사 <br> <br> <img src="./img/course_logo.PNG">
+					정보처리기사 <br> <br> <img src="../img/course_logo.PNG">
 					<br>
 				</div>
 			</font>
@@ -111,7 +111,7 @@ td{
 				width="800">
 				<tr>
 					<td rowspan="4" style="line-height: 0" width="100px"><img
-						src="./img/information1.png"></td>
+						src="../img/information1.png"></td>
 					<td colspan="3">교재명: 2022 정보처리기사 필기</td>
 				</tr>
 				<hr style="margin: 30px 30px 30px 30px" border: "1px
@@ -133,7 +133,7 @@ td{
 					if(session.getAttribute("sessionID")!=null){
 				%>
 
-						<form method="post" action="bookinsert.jsp">
+						<form method="post" action="../process/bookinsert.jsp">
 
 							<%
 					}

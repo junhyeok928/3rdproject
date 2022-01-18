@@ -56,9 +56,7 @@ public class member_DAO {
 	public void insertMember(member_VO member) {
 		try {
 			setConn();
-			String sql = "insert into Users \r\n"
-					+ "values((SELECT TO_NUMBER(NVL(MAX(USER_NO), '0')) + 1 FROM USERS u )\r\n"
-					+ ",?,?,?,?,?)";
+			String sql = "INSERT INTO USERS VALUES(member_seq.NEXTVAL, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, member.getId());
